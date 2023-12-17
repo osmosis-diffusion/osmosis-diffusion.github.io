@@ -1,2 +1,0 @@
-# osmosis-diffusion.github.io
-
