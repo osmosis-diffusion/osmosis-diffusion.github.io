@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="SeaThru-NeRF: Neural Radiance Fields in Scattering Media">
+    <meta name="keywords" content="SeaThru-NeRF, underwater image rendering, underwater image reconstruction, NeRF, CVPR">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SeaThru-NeRF: Neural Radiance Fields in Scattering Media</title>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;%E2%9C%A8&lt;/text&gt;&lt;/svg&gt;">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css"> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/codemirror.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/video_comparison.js"></script>
+    <script src="js/app.js"></script> 
+    <link rel="shortcut icon" href="./images/lab_icon.png" type="image/png"/>
+
+    <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    
+        .centered h3 {
+            margin-bottom: 10px;
+        }
+    
+        .video-compare-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .linked-author {
+            color: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            text-decoration: none;
+        }
+
+        .video-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }  
+
+        .video-container {
+            flex: 1 1 calc(33.333% - 40px); /* Adjust the 33.333% to fit 3 video containers in a row */
+        }
+        .video-title {
+            text-align: center;
+            color: #4a4a4a;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">SeaThru-NeRF: Neural Radiance Fields in Scattering Media</h1>
+                    <div class="is-size-3 publication-authors">
+                        <span class="author-block">
+                          Deborah Levy<sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                          Amit Peleg<sup>1</sup>,
+                        </span>
+                       <span class="author-block">
+                          Naama Pearl<sup>1</sup>,
+                       </span>
+                       <span class="author-block">
+                          Dan Rosenbaum<sup>2</sup>,
+                       </span>
+                       <span class="author-block">
+                          Derya Akkaynak<sup>1</sup><sup>3</sup>,
+                       </span>
+          
+                        <span class="author-block">
+                          <div class="is-size-3 author-block">
+                          <a class="linked-author" href="http://www.cs.haifa.ac.il/~skorman/">Simon Korman</a><sup>2</sup>,
+                          </span>
+                      <span class="author-block">
+                          <a class="linked-author" href="https://www.viseaon.haifa.ac.il/">Tali Treibitz</a><sup>1</sup>,
+                        </span>
+            </div>
+                    </div>
+                    <div class="is-size-5 publication-authors">
+                        <span class="institution-block">
+                          <span class="instit"><sup>1</sup>Dept. of Marine Technologies,
+                            <br>School of Marine Sciences
+                            <br>University of Haifa, Israel
+                          </span>
+                          <span class="instit"><sup>2</sup>Dept. of Computer Science,
+                            <br>University of Haifa, Israel
+                          </span>
+                          <span class="instit"><sup>3</sup>The Inter-University Institute for Marine Sciences in Eilat,
+                              <br>Israel
+                          </span>
+                        </span>
+                    </div>
+                    <h1 style="font-size:24px;font-weight:bold">CVPR 2023</h1>
+                    <div class="column has-text-centered">
+                        <div class="publication-links" style="display: flex; align-items: center; justify-content: center;">
+                            <!-- PDF Link -->
+                            <span class="link-block">
+                                <a href="https://arxiv.org/abs/2304.07743"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="ai ai-arxiv is-size-4"></i>
+                                  </span>
+                                  <span>Paper</span>
+                                </a>
+                            </span>
+                            <!-- Video Link -->
+                            <span class="link-block">
+                                <a href="https://www.youtube.com/watch?v=dXKCJS4cscg&t=82s"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="fab fa-youtube"></i>
+                                  </span>
+                                  <span>Video</span>
+                                </a>
+                            </span>
+                           
+                            <!-- Code Link -->
+                            <span class="link-block">
+                                <a href="https://github.com/deborahLevy130/seathru_NeRF"
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="fab fa-github is-size-4"></i>
+                                  </span>
+                                  <span>Code</span>
+                                </a>
+                            </span>
+                            
+                             <!-- dataset Link -->
+                            <span class="link-block">
+                                <a href="https://drive.google.com/uc?export=download&id=1RzojBFvBWjUUhuJb95xJPSNP3nJwZWaT"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                  <span>Dataset</span>
+                                </button>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="centered">
+        <h3>
+            Underwater Image Novel Views Rendering
+        </h3>
+        <div class="video-compare-container" id="materialsDiv">
+            <video class="video" id="materials" loop playsinline autoplay muted src="videos/uw.mp4" onplay="resizeAndPlay(this)"></video>
+            <canvas height=0 class="videoMerge" id="materialsMerge"></canvas>
+        </div>
+    </div>
+    <div class="centered">
+        <h3>
+            Underwater Image Restoration
+        </h3>
+        <div class="video-compare-container">
+            <video class="video" id="musclecar" loop playsinline autoplay muted src="videos/outputnowater.mp4" onplay="resizeAndPlay(this)"></video>
+            <canvas height=0 class="videoMerge" id="musclecarMerge"></canvas>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+                Abstract
+            </h3>
+            <p class="text-justify">
+                Research on neural radiance fields (NeRFs) for novel view generation is exploding with new models and extensions.
+                However, a question that remains unanswered is what happens in underwater or foggy scenes where the medium strongly influences the appearance of objects.
+                Thus far, NeRF and its variants have ignored these cases.
+                However, since the NeRF framework is based on volumetric rendering, it has inherent capability to account for the medium’s effects, once modeled appropriately.
+                We develop a new rendering model for NeRFs in scattering media, which is based on the SeaThru image formation model, and suggest a suitable architecture for learning both scene information and medium parameters.
+                We demonstrate the strength of our method using simulated and real-world scenes, correctly rendering novel photorealistic views underwater.
+                Even more excitingly, we can render clear views of these scenes, removing the medium between the camera and the scene and reconstructing the appearance and depth of far objects, which are severely occluded by the medium.
+        </p>
+        </div>
+    </div>
+
+    <div class="col-md-8 col-md-offset-2">
+        <h3>
+            Underwater Image Formation Model
+        </h3>
+        <img src="figures/SeaThru-NeRF_seminar_updated_image.gif" class="img-responsive" alt="overview" width="40%" height="40%" style="margin:auto;">
+    </div>  
+
+    <div class="col-md-8 col-md-offset-2">
+        <h3>
+            SeaThru-NeRF: Medium Aware Rendering
+        </h3>
+        <img src="figures/SeaThru-NeRF_seminar_updated.gif" class="img-responsive" alt="overview" width="20%" height="20%" style="margin:auto;">
+    </div>
+
+    <div class="col-md-8 col-md-offset-2">
+        <h3>
+            SeaThru-NeRF Architecture
+        </h3>
+        <img src="figures/architecture.png" class="img-responsive" alt="overview"  width="5%" height="5%" style="margin:auto;">
+    </div>
+</div>
+
+
+   
+<div class="centered">
+    <h3>
+        Additional Results - Color Restoration
+    </h3>
+</div>
+<div class="video-row">
+    <div class="video-container">
+        <h4 class="video-title">Japanese Gardens</h4>
+        <video class="video" id="JG" loop playsinline autoplay muted src="videos/outputSideBySide.mp4" onplay="resizeAndPlay(this)"></video>
+        <canvas height=0 class="videoMerge" id="JGMerge"></canvas>
+    </div>
+    <div class="video-container">
+        <h4 class="video-title">IUI3</h4>
+        <video class="video" id="IUI" loop playsinline autoplay muted src="videos/outputSidebySideIUI3.mp4" onplay="resizeAndPlay(this)"></video>
+        <canvas height=0 class="videoMerge" id="IUIMerge"></canvas>
+    </div>
+    <!-- Add the new video container here -->
+    <div class="video-container">
+        <h4 class="video-title">Panama</h4>
+        <video class="video" id="Panama" loop playsinline autoplay muted src="videos/outputSidebySidePanama.mp4" onplay="resizeAndPlay(this)"></video>
+        <canvas height=0 class="videoMerge" id="PanamaMerge"></canvas>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="centered">
+    <h3>
+        Additional Results - Novel Views
+    </h3>
+    <div class="video-compare-container">
+        <video class="video" id="JGColor" loop playsinline autoPlay muted src="videos/outputColor.mp4" onplay="resizeAndPlay(this)"></video>
+        <canvas height=0 class="videoMerge" id="JGColorMerge"></canvas>
+    </div>
+</div>
+
+
+
+<script>
+    document.onkeydown = keyHandler;
+</script>
+
+
+<section class="section" id="BibTeX">
+    <div class="container content">
+    </div>
+</section>
+
+<section class="section" id="refrences">
+    <div class="container content">
+        <div class="columns">
+            <div class="column">
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="content has-text-centered">
+                The website interface is adapted from <a href="https://noise-aware-nerf.github.io/">NAN</a>
+                and
+                <a href="https://dorverbin.github.io/refnerf//">Ref-NeRF</a>.
+                <br>
+            </div>
+        </div>
+    </div>
+</footer> 
+
+</body>
+</html>
