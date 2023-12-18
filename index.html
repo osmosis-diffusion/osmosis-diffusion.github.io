@@ -202,14 +202,16 @@
                 Abstract
             </h3>
             <p class="text-justify">
-                Research on neural radiance fields (NeRFs) for novel view generation is exploding with new models and extensions.
-                However, a question that remains unanswered is what happens in underwater or foggy scenes where the medium strongly influences the appearance of objects.
-                Thus far, NeRF and its variants have ignored these cases.
-                However, since the NeRF framework is based on volumetric rendering, it has inherent capability to account for the medium’s effects, once modeled appropriately.
-                We develop a new rendering model for NeRFs in scattering media, which is based on the SeaThru image formation model, and suggest a suitable architecture for learning both scene information and medium parameters.
-                We demonstrate the strength of our method using simulated and real-world scenes, correctly rendering novel photorealistic views underwater.
-                Even more excitingly, we can render clear views of these scenes, removing the medium between the camera and the scene and reconstructing the appearance and depth of far objects, which are severely occluded by the medium.
-        </p>
+                Underwater image restoration is a challenging task because of strong water effects that increase dramatically with distance. 
+                This is worsened by lack of ground truth data of clean scenes without water. 
+                Diffusion priors have emerged as strong image restoration priors. 
+                However, they are often trained with a dataset of the desired restored output, which is not available in our case. 
+                To overcome this critical issue, we show how to leverage in-air images to train diffusion priors for underwater restoration. 
+                We observe that only color data is insufficient, and augment the prior with a depth channel. 
+                Thus, we train an unconditional diffusion model prior on the joint space of color and depth, using standard RGBD datasets of natural outdoor scenes in air.
+                Using this prior together with a novel guidance method based on the underwater image formation model, we generate posterior samples of clean images, removing the water effects. 
+                Even though our prior did not see any underwater images during training, our method outperforms state-of-the-art baselines both for image restoration and depth estimation on very challenging scenes.
+            </p>
         </div>
     </div>
 
@@ -301,7 +303,7 @@
     <div class="container">
         <div class="columns is-centered">
             <div class="content has-text-centered">
-                The website interface is adapted from <a href="https://noise-aware-nerf.github.io/">NAN</a>
+                The website interface is adapted from <a href="https://sea-thru-nerf.github.io/">Seathru-Nerf</a>
                 and
                 <a href="https://dorverbin.github.io/refnerf//">Ref-NeRF</a>.
                 <br>
