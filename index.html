@@ -49,6 +49,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Osmosis: RGBD Diffusion Prior for Underwater Image Restoration</h1>
+          <h1 class="title is-1 publication-title">Under Contructions</h1>
           <div class="is-size-3 publication-authors">
             <span class="author-block">Opher Bar Nathan<sup>1</sup>,</span>
             <span class="author-block">Deborah Levy<sup>1</sup>,</span>
@@ -213,31 +214,16 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Underwater image restoration is a challenging task because of strong water effects that increase dramatically with distance. 
+            This is worsened by lack of ground truth data of clean scenes without water. 
+            Diffusion priors have emerged as strong image restoration priors. 
+            However, they are often trained with a dataset of the desired restored output, which is not available in our case. 
+            To overcome this critical issue, we show how to leverage in-air images to train diffusion priors for underwater restoration. 
+            We observe that only color data is insufficient, and augment the prior with a depth channel. 
+            Thus, we train an unconditional diffusion model prior on the joint space of color and depth, using standard RGBD datasets of natural outdoor scenes in air.
+            Using this prior together with a novel guidance method based on the underwater image formation model, we generate posterior samples of clean images, removing the water effects. 
+            Even though our prior did not see any underwater images during training, 
+				    our method outperforms state-of-the-art baselines both for image restoration and depth estimation on very challenging scenes.
           </p>
         </div>
       </div>
@@ -245,7 +231,7 @@
     <!--/ Abstract. -->
 
     <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
@@ -253,7 +239,7 @@
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Paper video. -->
   </div>
 </section>
@@ -399,11 +385,11 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <pre><code>@article{???????,
+  author    = {Opher Bar Nathan, Deboarh Levy, Tali Treibitz, Dan Rosenbaum},
+  title     = {Osmosis: RGBD Diffusion Prior for Underwater Image Restoration},
+  journal   = {????},
+  year      = {2023},
 }</code></pre>
   </div>
 </section>
@@ -413,10 +399,11 @@
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
+         href="https://github.com/osmosis-diffusion/osmosis-diffusion-code">
+         <!-- href="./static/videos/nerfies_paper.pdf"> -->
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/osmosis-diffusion/osmosis-diffusion-code" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
