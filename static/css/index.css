@@ -2,6 +2,7 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+
 .footer .icon-link {
     font-size: 25px;
     color: #000;
@@ -79,21 +80,6 @@ body {
 
 .author-block {
   display: inline-block;
-    padding-right: 3px;
-    padding-bottom: 10px;
-
-}
-
-.institution-block {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    /*align-items: center;*/
-    gap: 30px;
-    padding-bottom: 10px;
-}
-
-.instit {
 }
 
 .publication-banner img {
@@ -168,134 +154,4 @@ body {
 }
 #interpolation-image-wrapper img {
   border-radius: 5px;
-}
-
-
-
-/*img.thumbnail*/
-/*{*/
-/*	border-style: solid;*/
-/*	width: 100px;*/
-/*    margin-left: 2px;*/
-/*    margin-bottom: 1px;*/
-/*}*/
-
-/*p.thumbnail_title*/
-/*{*/
-/*	font-size: 15px;*/
-/*    margin-left: 2px;*/
-/*}*/
-
-img {
-	border-style: solid;
-	border-width: 5px;
-	border-color: black;
-    width: 890px;
-    cursor: pointer;
-}
-
-img:hover {
-
-}
-
-
-
-.rcorners {
-    align-content: center;
-    display: inline-block;
-    border-radius: 8px;
-    border: 3px solid;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-/* Create two equal columns that sits next to each other */
-.column-viewer {
-    flex: 70%;
-    padding: 5px;
-}
-
-.column-thumbnail-title {
-    flex: 20%;
-    display: flex;
-    flex-wrap: wrap;
-    align-self: self-end;
-}
-
-.column-thumbnail {
-    flex: 10%;
-    padding: 10px;
-    align-self: center;
-    align-content: center;
-    align-items: center;
-}
-
-.column-viewer.img{
-    border: #FFB703;
-}
-
-.button-syn {
-    /*padding: 16px 32px;*/
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    border: 0px solid #8ECAE6;
-    border-radius: 10px;
-}
-
-.button-syn:hover {
-    background-color: #8ECAE1;
-    color: white;
-}
-
-.figure {
-    border: 0;
-    cursor: unset;
-}
-
-
-.llff-viewer {
-    border-color: #FFBF00;
-}
-
-.img-teaser {
-    padding: 10px;
-    border: 0;
-}
-
-.citation {
-    color: inherit;
-    cursor: inherit;
-}
-
-.ref {
-    color: hsl(204, 86%, 53%) !important;
-}
-
-.ref:hover {
-    text-decoration: underline;
-}
-
-.citation-list {
-    list-style-position: outside;
-}
-
-.citation-item {
-    counter-increment: OrderedList;
-    list-style: none;
-    list-style-position: outside;
-}
-.citation-item:before {
-    content: "["  counter(OrderedList) "] ";
 }
