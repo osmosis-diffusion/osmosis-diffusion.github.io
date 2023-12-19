@@ -1,442 +1,619 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="Osmosis: RGBD Diffusion Prior for Underwater Image Restoration.">
-  <meta name="keywords" content="Osmosis, Diffusion, Posterior Sampling, underwater, image restoration">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Osmosis: RGBD Diffusion Prior for Underwater Image Restoration</title>
+    <!--    https://www.w3schools.com/tags/tag_meta.asp-->
+    <meta charset="utf-8">
+    <meta name="description" content="NAN: Noise-Aware NeRFs for Burst-Denoising">
+    <meta name="keywords" content="NAN, burst denoising, NeRF, CVPR">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NAN: Noise-Aware NeRFs for Burst-Denoising</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-    gtag('js', new Date());
+        gtag('js', new Date());
 
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/lab_icon.png">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-  <!-- <link rel="shortcut icon" href="./static/images/lab_icon.png" type="image/png"/> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <!--    <script src='./static/js/jquery.elevatezoom.js'></script>-->
+    <link rel="shortcut icon" href="images/lab_icon.png" type="image/png"/>
 </head>
 <body>
 
+
 <section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-3 publication-title">Osmosis: RGBD Diffusion Prior for Underwater Image Restoration</h1>
-          <h1 class="title is-1 publication-title">Under Contruction</h1>
-          <div class="is-size-3 publication-authors">
-            <span class="author-block">Opher Bar Nathan<sup>1</sup>,</span>
-            <span class="author-block">Deborah Levy<sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://www.viseaon.haifa.ac.il/">Tali Treibitz</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://danrsm.github.io/">Dan Rosenbaum</a><sup>2</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Dept. of Marine Technologies,
-              <br>School of Marine Sciences,
-              <br>University of Haifa, Israel,
-            </span>
-            
-            <span class="author-block"><sup>2</sup>
-              Dept. of Computer Science,
-              <br>University of Haifa, Israel
-            </span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <!-- <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span> -->
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/osmosis-diffusion/osmosis-diffusion-code"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section> -->
-
-
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Underwater image restoration is a challenging task because of strong water effects that increase dramatically with distance. 
-            This is worsened by lack of ground truth data of clean scenes without water. 
-            Diffusion priors have emerged as strong image restoration priors. 
-            However, they are often trained with a dataset of the desired restored output, which is not available in our case. 
-          </p>
-          <p>  
-            To overcome this critical issue, we show how to leverage in-air images to train diffusion priors for underwater restoration. 
-            We observe that only color data is insufficient, and augment the prior with a depth channel. 
-            Thus, we train an unconditional diffusion model prior on the joint space of color and depth, using standard RGBD datasets of natural outdoor scenes in air.
-            Using this prior together with a novel guidance method based on the underwater image formation model, we generate posterior samples of clean images, removing the water effects. 
-            Even though our prior did not see any underwater images during training, 
-				    our method outperforms state-of-the-art baselines both for image restoration and depth estimation on very challenging scenes.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">NAN: Noise-Aware NeRFs for Burst-Denoising</h1>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                          Naama Pearl<sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                          <a href="https://www.viseaon.haifa.ac.il/">Tali Treibitz</a><sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                          <a href="http://www.cs.haifa.ac.il/~skorman/">Simon Korman</a><sup>2</sup>,
+                        </span>
+                    </div>
+                    <div class="is-size-5 publication-authors">
+                        <span class="institution-block">
+                          <span class="instit"><sup>1</sup>Dept. of Marine Technologies,
+                            <br>School of Marine Sciences
+                            <br>University of Haifa, Israel
+                          </span>
+                          <span class="instit"><sup>2</sup>Dept. of Computer Science,
+                            <br>University of Haifa, Israel
+                          </span>
+                        </span>
+                        <!--            <span class="institution-block">-->
+                        <!--              <div class="instit">University of Haifa, Israel</div>-->
+                        <!--            </span>-->
+                    </div>
+                    <h1 style="font-size:24px;font-weight:bold">CVPR 2022</h1>
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <!--             <span class="link-block">
+                                          <a href="static/paper.pdf"
+                                             class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                                <i class="fas fa-file-pdf"></i>
+                                            </span>
+                                            <span>Paper</span>
+                                          </a>
+                                        </span> -->
+                            <span class="link-block">
+                            <a href="https://arxiv.org/abs/2204.04668"
+                               class="external-link button is-normal is-rounded is-dark">
+                              <span class="icon">
+                                  <i class="ai ai-arxiv is-size-4"></i>
+                              </span>
+                              <span>Paper</span>
+                            </a>
+                          </span>
+                            <!-- supp PDF Link. -->
+                            <!--               <span class="link-block">
+                                            <a href="static/supp.pdf"
+                                               class="external-link button is-normal is-rounded is-dark">
+                                              <span class="icon">
+                                                  <i class="fas fa-file-pdf"></i>
+                                              </span>
+                                              <span>Supp</span>
+                                            </a>
+                                          </span> -->
+<!--                             Video Link. -->
+                            <span class="link-block">
+                              <a href="https://www.youtube.com/watch?v=jVqWGPzgrLw"
+                                 class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <i class="fab fa-youtube"></i>
+                                </span>
+                                <span>Video</span>
+                              </a>
+                            </span>
+                           
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                            <a href="https://github.com/NaamaPearl/nan"
+                               class="external-link button is-normal is-rounded is-dark">
+            <!--                   class="external-link button is-normal is-rounded is-dark">-->
+                              <span class="icon">
+                                  <i class="fab fa-github  is-size-4"></i>
+                              </span>
+                              <span>Code</span>
+                              </a>
+                          </span>
+                        </div>
+                    </div>
+                    <img class="img-teaser" src="figures/teaser.png">
+                </div>
             </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
         </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
     </div>
-    <!--/ Animation. -->
+</section>
 
+<!--abstract-->
+<section class="section">
+    <div class="container">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-two-thirds">
+                <h2 class="title is-2">Abstract</h2>
+                <div class="content has-text-justified is-italic">
+                    <p>
+                        Burst denoising is now more relevant than ever, as computational photography helps overcome
+                        sensitivity issues
+                        inherent in mobile phones and small cameras. A major challenge in burst-denoising is in coping
+                        with pixel
+                        misalignment, which was so far handled with rather simplistic assumptions of simple motion, or
+                        the ability
+                        to align in pre-processing. Such assumptions are not realistic in the presence of large motion
+                        and high
+                        levels of noise. We show that Neural Radiance Fields (NeRFs), originally suggested for
+                        physics-based
+                        novel-view rendering, can serve as a powerful framework for burst denoising. NeRFs have an
+                        inherent
+                        capability of handling noise as they integrate information from multiple images, but they are
+                        limited in
+                        doing so, mainly since they build on pixel-wise operations which are suitable to ideal imaging
+                        conditions.
+                        Our approach, termed NAN, leverages inter-view and spatial information in NeRFs to better deal
+                        with noise.
+                        It achieves state-of-the-art results in burst denoising and is especially successful in coping
+                        with large
+                        movement and occlusions, under very high levels of noise. With the rapid advances in
+                        accelerating NeRFs,
+                        it could provide a powerful platform for denoising in challenging environments.
+                    </p>
 
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <!-- <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div> -->
-
-        <div class="content has-text-justified">
-          <p>
-            ???????????????.
-          </p>
+                </div>
+            </div>
         </div>
-
-      </div>
     </div>
-    <!--/ Concurrent Work. -->
+</section>
+<!--/ Abstract. -->
 
-  </div>
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-3">Denoising of Low-Light Scene</h1>
+                    <span class="link-block">
+<!--                         <a href="https://www.dropbox.com/sh/pmbjan5zvgwwjod/AAAQX1quY0QnCufSJh9ETqn_a?dl=1" -->
+                        <a href="https://drive.google.com/uc?export=download&id=1Mc8yC7Dv9FJRBo-t4vnHC6psRSwcmTyr"
+                           class="button is-normal is-rounded is-dark">
+                          <span class="icon"> <i class="fas fa-images is-size-4"></i> </span>
+                          <span> &nbsp Download real world raw data</span>
+                        </a>
+                    </span>
+                    <h1 class="title is-6">We took the images with a Google Pixel 4. <br><br>
+                        We used only 8 images per burst, due to BPN's architectural limitation.
+                        <br>The data contains more images per scene.</h1>
+                    <div class="row">
+                        <div class="column-viewer">
+                            <button class="button-syn" onclick="change_scene_real(0);">
+                                <h1 class="is-text is-size-4 has-text-weight-semibold">Porch</h1>
+                                <input type="image" src="images/BD/real/0/nan.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(1);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Lettuces</h1>
+                                <input type="image" src="images/BD/real/1/nan.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(2);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Flowers</h1>
+                                <input type="image" src="images/BD/real/2/nan.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(3);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Plant</h1>
+                                <input type="image" src="images/BD/real/3/nan.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(4);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Stairs</h1>
+                                <input type="image" src="images/BD/real/4/nan.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <p><br></p>
+                            <script>
+                                function change_scene_real(id) {
+                                    real_main.src = "images/BD/real/" + id + "/dark.png";
+                                    real_dark.src = "images/BD/real/" + id + "/dark.png";
+                                    real_pre.src = "images/BD/real/" + id + "/pre.png";
+                                    real_avg.src = "images/BD/real/" + id + "/avg.png";
+                                    real_hdr.src = "images/BD/real/" + id + "/hdr.png";
+                                    real_deeprep.src = "images/BD/real/" + id + "/deeprep.png";
+                                    real_bpn.src = "images/BD/real/" + id + "/bpn.png";
+                                    real_ibrnetn.src = "images/BD/real/" + id + "/ibrnetn.png";
+                                    real_nan.src = "images/BD/real/" + id + "/nan.png";
+                                    // replaceImage(dark, viewer)
+                                }
+                            </script>
+                            <a href='images/BD/real/0/dark.png'> <img class='llff-viewer' id="real_main"
+                                                                   src="images/BD/real/0/dark.png"></a>
+                        </div>
+                        <div class="column-thumbnail-title">
+                            <h1 class="title is-6"> You can cycle through the images by pressing key
+                                <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
+                                <span class="rcorners" style="border: 3px solid #CCCCFF"> 8 </span> .
+                            </h1>
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Dark frame</h1>
+                                <img src="images/BD/real/0/dark.png" id="real_dark" onload="setBorderReal(this);"
+                                     onClick="replaceImage(this,real_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. Pre-processed</h1>
+                                <img src="images/BD/real/0/pre.png" id="real_pre" onload="setBorderReal(this);"
+                                     onClick="replaceImage(this,real_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. Burst Average</h1>
+                                <img src="images/BD/real/0/avg.png" id="real_avg" onload="setBorderReal(this);"
+                                     onClick="replaceImage(this,real_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">4. HDR+ <a class="ref" href="#hdr">[6]</a><sup>*</sup> </h1>
+                                <img src="images/BD/real/0/hdr.png" id="real_hdr" onload="setBorderReal(this);"
+                                     onClick="replaceImage(this,real_main);">
+                            </div>
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">5. BPN <a class="ref" href="#bpn">[1]</a> </h1>
+                                <img src="images/BD/real/0/bpn.png" id="real_bpn" onload="setBorderReal(this);"
+                                     onClick="replaceImage(this,real_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">6. Deep-Rep <a class="ref" href="#deeprep">[2]</a> </h1>
+                                <img src="images/BD/real/0/deeprep.png" id="real_deeprep" onload="setBorderReal(this);"
+                                     onClick="replaceImage(this,real_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">7. IBRNet-<i>N</i></h1>
+<!--                                <img src="images/BD/real/0/ibrnetn.png" id="real_ibrnetn" onload="setBorderReal(this);"-->
+                                <img src="images/BD/real/0/ibrnetn.png" id="real_ibrnetn" onload="setBorderReal(this);"
+                                     onClick="replaceImage(this,real_main);">
+
+                                <p class="is-text is-size-6 has-text-weight-semibold">8. NAN</p>
+                                <img src="images/BD/real/0/nan.png" id="real_nan" onload="setBorderReal(this);"
+                                     onClick="replaceImage(this,real_main);">
+
+                            </div>
+                            <h1><sup>*</sup>We use the implementation from <a class="ref" href="#hdrimp">[7]</a> </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-3">Denoising of Synthetic Noise (Real-World Displacements)</h1>
+                    <h1 class="title is-4">LLFF-<i>N</i> Dataset - Gain 20</h1>
+                    <h1 class="title is-6">
+                        This is the validation set that was used in IBRNet  <a class="ref" href="#ibrnet">[3]</a>,
+                        which is build on scenes from LLFF <a class="ref" href="#llff">[4]</a> and NeRF <a class="ref" href="#nerf">[5]</a>.
+                        <br>
+                        We describe in the paper the way we add noise to the clean images.</h1>
+                    <span class="link-block">
+<!--                         <a href="https://www.dropbox.com/s/qou0r51tk7xd8b0/llffn_BD_results.zip?dl=1" -->
+                        <a href="https://drive.google.com/uc?export=download&id=1ZmouhTXyJO_gwonIiugZ3gcocLsMt5nb"
+                           class="button is-normal is-rounded is-dark">
+                          <span class="icon"> <i class="fas fa-images is-size-4"></i> </span>
+                          <span> &nbsp Download results</span>
+                        </a>
+                    </span>
+                    <div class="row">
+                        <div class="column-viewer">
+                            <button class="button-syn" onclick="change_scene_syn(0);">
+                                <h1 class="is-text is-size-4 has-text-weight-semibold">Fern</h1>
+                                <input type="image" src="images/BD/llffn/0/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn(1);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Flower</h1>
+                                <input type="image" src="images/BD/llffn/1/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn(2);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Fortress</h1>
+                                <input type="image" src="images/BD/llffn/2/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn(3);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Horns</h1>
+                                <input type="image" src="images/BD/llffn/3/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn(4);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Leaves</h1>
+                                <input type="image" src="images/BD/llffn/4/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn(5);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Orchids</h1>
+                                <input type="image" src="images/BD/llffn/5/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn(6);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Room</h1>
+                                <input type="image" src="images/BD/llffn/6/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn(7);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">T-rex</h1>
+                                <input type="image" src="images/BD/llffn/7/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <p><br></p>
+                            <script>
+                                function change_scene_syn(id) {
+                                    syn_main.src = "images/BD/llffn/" + id + "/noisy.png";
+                                    syn_noisy.src = "images/BD/llffn/" + id + "/noisy.png";
+                                    syn_gt.src = "images/BD/llffn/" + id + "/gt.png";
+                                    syn_avg.src = "images/BD/llffn/" + id + "/avg.png";
+                                    syn_deeprep.src = "images/BD/llffn/" + id + "/deeprep.png";
+                                    syn_bpn.src = "images/BD/llffn/" + id + "/bpn.png";
+                                    syn_ibrnetn.src = "images/BD/llffn/" + id + "/ibrnetn.png";
+                                    syn_nan.src = "images/BD/llffn/" + id + "/nan.png";
+                                    // replaceImage(dark, viewer)
+                                }
+                            </script>
+                            <a href='images/BD/llffn/0/noisy.png'> <img class='llff-viewer' id="syn_main"
+                                                                     src="images/BD/llffn/0/noisy.png"></a>
+                            <!--                            <img src="images/BD/llffn/0/noisy.png" id="main_syn">-->
+                        </div>
+                        <div class="column-thumbnail-title">
+                            <h1 class="title is-6"> You can cycle through the images by pressing key
+                                <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
+                                <span class="rcorners" style="border: 3px solid #CCCCFF"> 7 </span> .
+                            </h1>
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Noisy frame</h1>
+                                <img src="images/BD/llffn/0/noisy.png" id="syn_noisy" onload="setBorderSyn(this);"
+                                     onClick="replaceImage(this,syn_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. GT frame</h1>
+                                <img src="images/BD/llffn/0/gt.png" id="syn_gt" onload="setBorderSyn(this);"
+                                     onClick="replaceImage(this,syn_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. Burst Average</h1>
+                                <img src="images/BD/llffn/0/avg.png" id="syn_avg" onload="setBorderSyn(this);"
+                                     onClick="replaceImage(this,syn_main);">
+                            </div>
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">4. BPN  <a class="ref" href="#bpn">[1]</a> </h1>
+                                <img src="images/BD/llffn/0/bpn.png" id="syn_bpn" onload="setBorderSyn(this);"
+                                     onClick="replaceImage(this,syn_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">5. Deep-Rep  <a class="ref" href="#deeprep">[2]</a> </h1>
+                                <img src="images/BD/llffn/0/deeprep.png" id="syn_deeprep" onload="setBorderSyn(this);"
+                                     onClick="replaceImage(this,syn_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">6. IBRNet-<i>N</i></h1>
+                                <img src="images/BD/llffn/0/ibrnetn.png" id="syn_ibrnetn" onload="setBorderSyn(this);"
+                                     onClick="replaceImage(this,syn_main);">
+
+                                <p class="is-text is-size-6 has-text-weight-semibold">7. NAN</p>
+                                <img src="images/BD/llffn/0/nan.png" id="syn_nan" onload="setBorderSyn(this);"
+                                     onClick="replaceImage(this,syn_main);">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <p class="title is-4">Quantitative Evaluation</p>
+                    <img class="figure" src="figures/metrics_BD.png">
+                    <br>
+                    <br>
+                    <p class="title is-4 is-spaced">Comparison of Kernel Size and Bilateral in Post Processing</p>
+                    <img class="figure" src="figures/metrics_kernels_BD.png">
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 
-<!-- <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{???????,
-  author    = {Opher Bar Nathan, Deboarh Levy, Tali Treibitz, Dan Rosenbaum},
-  title     = {Osmosis: RGBD Diffusion Prior for Underwater Image Restoration},
-  journal   = {????},
-  year      = {2023},
-}</code></pre>
-  </div>
-</section> -->
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-3">Novel View Synthesis Under Noise Conditions</h1>
+                    <h1 class="title is-4">LLFF-<i>N</i> Dataset - Gain 20</h1>
+                    <h1 class="title is-6">In the novel view task, the target frame is not available to the network, as opposed to the denoising task.</h1>
+                    <div class="row">
+                        <div class="column-viewer">
+                            <button class="button-syn" onclick="change_scene_syn_nv(0);">
+                                <h1 class="is-text is-size-4 has-text-weight-semibold">Fern</h1>
+                                <input type="image" src="images/NV/llffn/0/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn_nv(1);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Flower</h1>
+                                <input type="image" src="images/NV/llffn/1/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn_nv(2);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Fortress</h1>
+                                <input type="image" src="images/NV/llffn/2/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn_nv(3);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Horns</h1>
+                                <input type="image" src="images/NV/llffn/3/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn_nv(4);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Leaves</h1>
+                                <input type="image" src="images/NV/llffn/4/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn_nv(5);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Orchids</h1>
+                                <input type="image" src="images/NV/llffn/5/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn_nv(6);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Room</h1>
+                                <input type="image" src="images/NV/llffn/6/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_syn_nv(7);">
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">T-rex</h1>
+                                <input type="image" src="images/NV/llffn/7/gt.png"
+                                       style="border: double; border-radius: inherit" height="50"/>
+                            </button>
+
+                            <p><br></p>
+                            <script>
+                                function change_scene_syn_nv(id) {
+                                    syn_main_nv.src = "images/NV/llffn/" + id + "/noisy.png";
+                                    syn_noisy_nv.src = "images/NV/llffn/" + id + "/noisy.png";
+                                    syn_gt_nv.src = "images/NV/llffn/" + id + "/gt.png";
+                                    syn_avg_nv.src = "images/NV/llffn/" + id + "/avg.png";
+                                    syn_ibrnet_nv.src = "images/NV/llffn/" + id + "/ibrnet.png";
+                                    syn_ibrnetn_nv.src = "images/NV/llffn/" + id + "/ibrnetn.png";
+                                    syn_nan_nv.src = "images/NV/llffn/" + id + "/nan.png";
+                                }
+                            </script>
+                            <a href='images/NV/llffn/0/noisy.png'> <img class='llff-viewer' id="syn_main_nv"
+                                                                        src="images/NV/llffn/0/noisy.png"></a>
+                        </div>
+                        <div class="column-thumbnail-title">
+                            <h1 class="title is-6"> You can cycle through the images by pressing key
+                                <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
+                                <span class="rcorners" style="border: 3px solid #CCCCFF"> 6 </span> .
+                            </h1>
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Noisy frame</h1>
+                                <img src="images/NV/llffn/0/noisy.png" id="syn_noisy_nv" onload="setBorderSynNV(this);"
+                                     onClick="replaceImage(this,syn_main_nv);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. GT frame</h1>
+                                <img src="images/NV/llffn/0/gt.png" id="syn_gt_nv" onload="setBorderSynNV(this);"
+                                     onClick="replaceImage(this,syn_main_nv);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. Burst Average</h1>
+                                <img src="images/NV/llffn/0/avg.png" id="syn_avg_nv" onload="setBorderSynNV(this);"
+                                     onClick="replaceImage(this,syn_main_nv);">
+                            </div>
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">4. IBRNet <a class="ref" href="#ibrnet">[3]</a></h1>
+                                <img src="images/NV/llffn/0/ibrnet.png" id="syn_ibrnet_nv" onload="setBorderSynNV(this);"
+                                     onClick="replaceImage(this,syn_main_nv);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">5. IBRNet-<i>N</i></h1>
+                                <img src="images/NV/llffn/0/ibrnetn.png" id="syn_ibrnetn_nv" onload="setBorderSynNV(this);"
+                                     onClick="replaceImage(this,syn_main_nv);">
+
+                                <p class="is-text is-size-6 has-text-weight-semibold">6. NAN</p>
+                                <img src="images/NV/llffn/0/nan.png" id="syn_nan_nv" onload="setBorderSynNV(this);"
+                                     onClick="replaceImage(this,syn_main_nv);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.onkeydown = keyHandler;
+</script>
+
+
+<section class="section" id="BibTeX">
+    <div class="container content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>
+      @inproceedings{pearl2022noiseaware,
+        title={NAN: Noise-Aware NeRFs for Burst-Denoising},
+        author={Pearl, Naama and Treibitz, Tali and Korman, Simon},
+        booktitle=CVPR,
+        year={2022}
+      }
+</code></pre>
+    </div>
+</section>
+
+<section class="section" id="refrences">
+    <div class="container content">
+        <div class="columns">
+            <div class="column">
+                <h1 class="title">References</h1>
+                <ol  class="citation-list">
+                    <li class="citation-item"><a class="citation" id="bpn">Xia, Zhihao, et al.
+                        "Basis prediction networks for effective burst denoising with large kernels."
+                        <i>In Proc. IEEE CVPR</i>, 2020. </a></li>
+                    <li class="citation-item"><a class="citation" id="deeprep">Bhat, Goutam, et al.
+                        "Deep reparametrization of multi-frame super-resolution and denoising."
+                        <i>In Proc. IEEE ICCV</i>, 2021. </a></li>
+                    <li class="citation-item"><a class="citation" id="ibrnet">Wang, Qianqian, et al.
+                        "Ibrnet: Learning multi-view image-based rendering."
+                        <i>In Proc. IEEE CVPR</i>, 2021. </a></li>
+                    <li class="citation-item"><a class="citation" id="llff">Mildenhall, Ben, et al.
+                        "Local light field fusion: Practical view synthesis with prescriptive sampling guidelines."
+                        <i>ACM Transactions on Graphics</i>, 2019. </a></li>
+                    <li class="citation-item"><a class="citation" id="nerf">Mildenhall, Ben, et al.
+                        "Nerf: Representing scenes as neural radiance fields for view synthesis."
+                        <i>In ECCV</i>, 2020. </a></li>
+                    <li class="citation-item"><a class="citation" id="hdr">
+                        Hasinoff, Samuel W., et al.
+                        "Burst photography for high dynamic range and low-light imaging on mobile cameras."
+                        <i>ACM Transactions on Graphics</i>, 2016. </a></li>
+                    <li class="citation-item"><a class="citation" id="hdrimp">
+                        Monod, Antoine, et al.
+                        "An Analysis and Implementation of the HDR+ Burst Denoising Method."
+                        <i>Image Processing On Line</i>, 2021. </a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="https://github.com/osmosis-diffusion/osmosis-diffusion-code">
-         <!-- href="./static/videos/nerfies_paper.pdf"> -->
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/osmosis-diffusion/osmosis-diffusion-code" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            The website interface is adapted from <a href="nerfies.github.io">Nerfies</a><br>
-            According to Nerfies, this means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="content has-text-centered">
+                The website interface is adapted from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>
+                and
+                <a href="http://jankautz.com/supplemental/FlexISP/">FlexISP</a>.
+                <br>
+                We thank Nir Zagdanski for helping with the website.
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </footer>
 
 </body>

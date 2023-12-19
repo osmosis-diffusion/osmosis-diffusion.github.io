@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="description" content="NAN: Noise-Aware NeRFs for Burst-Denoising">
+    <meta name="keywords" content="NAN, burst denoising">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NAN: Noise-Aware NeRFs for Burst-Denoising</title>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+<!--    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">-->
+<!--    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">-->
+<!--    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">-->
+    <link rel="stylesheet" href="./static/css/index.css">
+
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--    <script defer src="./static/js/fontawesome.all.min.js"></script>-->
+<!--    <script src="./static/js/bulma-carousel.min.js"></script>-->
+<!--    <script src="./static/js/bulma-slider.min.js"></script>-->
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">NAN: Noise-Aware NeRFs for Burst-Denoising</h1>
+                    <h1 class="title is-3">Denoising of LLFF-<i>N</i> Dataset - Gain 20</h1>
+                    <div class="row">
+                        <div class="column-viewer">
+                            <button class="button-syn"  onclick="change_scene_syn(0);">
+                                <h1 class="is-text is-size-5 has-text-weight-semibold">Fern</h1>
+                                <input type="image" src="images/llffn/0/gt.png" style="border: double; border-radius: inherit" height="50" />
+                            </button>
+
+                            <button class="button-syn"  onclick="change_scene_syn(1);">
+                                <h1 class="is-text is-size-5  has-text-weight-semibold">Flower</h1>
+                                <input type="image" src="images/llffn/1/gt.png" style="border: double; border-radius: inherit" height="50" />
+                            </button>
+
+                            <button class="button-syn"  onclick="change_scene_syn(2);">
+                                <h1 class="is-text is-size-5  has-text-weight-semibold">Fortress</h1>
+                                <input type="image" src="images/llffn/2/gt.png" style="border: double; border-radius: inherit" height="50" />
+                            </button>
+
+                            <button class="button-syn"  onclick="change_scene_syn(3);">
+                                <h1 class="is-text is-size-5  has-text-weight-semibold">Horns</h1>
+                                <input type="image" src="images/llffn/3/gt.png" style="border: double; border-radius: inherit" height="50" />
+                            </button>
+
+                            <button class="button-syn"  onclick="change_scene_syn(4);">
+                                <h1 class="is-text is-size-5  has-text-weight-semibold">Leaves</h1>
+                                <input type="image" src="images/llffn/4/gt.png" style="border: double; border-radius: inherit" height="50" />
+                            </button>
+
+                            <button class="button-syn"  onclick="change_scene_syn(5);">
+                                <h1 class="is-text is-size-5  has-text-weight-semibold">Orchids</h1>
+                                <input type="image" src="images/llffn/5/gt.png" style="border: double; border-radius: inherit" height="50" />
+                            </button>
+
+                            <button class="button-syn"  onclick="change_scene_syn(6);">
+                                <h1 class="is-text is-size-5  has-text-weight-semibold">Room</h1>
+                                <input type="image" src="images/llffn/6/gt.png" style="border: double; border-radius: inherit" height="50" />
+                            </button>
+
+                            <button class="button-syn"  onclick="change_scene_syn(7);">
+                                <h1 class="is-text is-size-5  has-text-weight-semibold">T-rex</h1>
+                                <input type="image" src="images/llffn/7/gt.png" style="border: double; border-radius: inherit" height="50" />
+                            </button>
+
+                            <p><br></p>
+                            <script>
+                                function change_scene_syn(id) {
+                                    syn_main.src = "images/llffn/" + id + "/noisy.png";
+                                    noisy.src = "images/llffn/" + id + "/noisy.png";
+                                    gt.src = "images/llffn/" + id + "/gt.png";
+                                    avg.src = "images/llffn/" + id + "/avg.png";
+                                    deeprep.src = "images/llffn/" + id + "/deeprep.png";
+                                    bpn.src = "images/llffn/" + id + "/bpn.png";
+                                    ibrnetn.src = "images/llffn/" + id + "/ibrnetn.png";
+                                    nan.src = "images/llffn/" + id + "/nan.png";
+                                    // replaceImage(dark, viewer)
+                                }
+                            </script>
+                            <a href='images/llffn/0/noisy.png'> <img class='llff-viewer' id="syn_main" src="images/llffn/0/noisy.png"></a>
+<!--                            <img src="images/llffn/0/noisy.png" id="main_syn">-->
+                        </div>
+                        <div class="column-thumbnail-title">
+                            <h1 class="title is-6"> You can cycle through the images by pressing key <span class="rcorners"> 1 </span> to <span class="rcorners"> 7 </span> . </h1>
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Noisy frame</h1>
+                                <img src="images/llffn/0/noisy.png" id="noisy" onload="setBorderSyn(this);" onClick="replaceImage(this,main_syn);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. GT frame</h1>
+                                <img src="images/llffn/0/gt.png" id="gt" onload="setBorderSyn(this);" onClick="replaceImage(this,main_syn);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. Burst Average</h1>
+                                <img src="images/llffn/0/avg.png" id="avg" onload="setBorderSyn(this);" onClick="replaceImage(this,main_syn);">
+                            </div>
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">4. BPN</h1>
+                                <img src="images/llffn/0/bpn.png" id="bpn" onload="setBorderSyn(this);" onClick="replaceImage(this,main_syn);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">5. Deep-Rep</h1>
+                                <img src="images/llffn/0/deeprep.png" id="deeprep" onload="setBorderSyn(this);" onClick="replaceImage(this,main_syn);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">6. IBRNet-<i>N</i></h1>
+                                <img src="images/llffn/0/ibrnetn.png" id="ibrnetn" onload="setBorderSyn(this);" onClick="replaceImage(this,main_syn);">
+
+                                <p class="is-text is-size-6 has-text-weight-semibold">7. NAN</p>
+                                <img src="images/llffn/0/nan.png" id="nan" onload="setBorderSyn(this);" onClick="replaceImage(this,main_syn);">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <p class="title is-3">Numerical Evaluation</p>
+                    <img class="figure" src="figures/metrics_BD.png">
+                    <br>
+                    <br>
+                    <p class="title is-3 is-spaced">Comparison of Kernel Size and Bilateral in Post Processing</p>
+                    <img class="figure" src="figures/metrics_kernels_BD.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.onkeydown = keyHandlerSyn;
+</script>
+
+</body>
+</html>
