@@ -46,7 +46,7 @@
         <div class="container">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
-                    <h1 class="title is-3 publication-title">NAN: Noise-Aware NeRFs for Burst-Denoising</h1>
+                    <h1 class="title is-3 publication-title">Osmosis: RGBD Diffusion Prior for Underwater Image Restoration</h1>
                     <h1 class="title is-1 publication-title">Under Contruction</h1>
                     <div class="is-size-5 publication-authors">
                         <span class="author-block">Opher Bar Nathan<sup>1</sup>,</span>
@@ -140,29 +140,20 @@
                 <h2 class="title is-2">Abstract</h2>
                 <div class="content has-text-justified is-italic">
                     <p>
-                        Burst denoising is now more relevant than ever, as computational photography helps overcome
-                        sensitivity issues
-                        inherent in mobile phones and small cameras. A major challenge in burst-denoising is in coping
-                        with pixel
-                        misalignment, which was so far handled with rather simplistic assumptions of simple motion, or
-                        the ability
-                        to align in pre-processing. Such assumptions are not realistic in the presence of large motion
-                        and high
-                        levels of noise. We show that Neural Radiance Fields (NeRFs), originally suggested for
-                        physics-based
-                        novel-view rendering, can serve as a powerful framework for burst denoising. NeRFs have an
-                        inherent
-                        capability of handling noise as they integrate information from multiple images, but they are
-                        limited in
-                        doing so, mainly since they build on pixel-wise operations which are suitable to ideal imaging
-                        conditions.
-                        Our approach, termed NAN, leverages inter-view and spatial information in NeRFs to better deal
-                        with noise.
-                        It achieves state-of-the-art results in burst denoising and is especially successful in coping
-                        with large
-                        movement and occlusions, under very high levels of noise. With the rapid advances in
-                        accelerating NeRFs,
-                        it could provide a powerful platform for denoising in challenging environments.
+                        Underwater image restoration is a challenging task because of strong water effects that increase dramatically with distance. 
+                        This is worsened by lack of ground truth data of clean scenes without water. 
+                        Diffusion priors have emerged as strong image restoration priors. 
+                        However, they are often trained with a dataset of the desired restored output, which is not available in our case. 
+                    </p>
+                    <p>  
+                        To overcome this critical issue, we show how to leverage in-air images to train diffusion priors for underwater restoration. 
+                        We observe that only color data is insufficient, and augment the prior with a depth channel. 
+                        Thus, we train an unconditional diffusion model prior on the joint space of color and depth, using standard RGBD datasets of natural outdoor scenes in air.
+                    </p>
+                    <p>
+                        Using this prior together with a novel guidance method based on the underwater image formation model, we generate posterior samples of clean images, removing the water effects. 
+                        Even though our prior did not see any underwater images during training, 
+                        our method outperforms state-of-the-art baselines both for image restoration and depth estimation on very challenging scenes.
                     </p>
 
                 </div>
@@ -551,14 +542,7 @@
 <section class="section" id="BibTeX">
     <div class="container content">
         <h2 class="title">BibTeX</h2>
-        <pre><code>
-      @inproceedings{pearl2022noiseaware,
-        title={NAN: Noise-Aware NeRFs for Burst-Denoising},
-        author={Pearl, Naama and Treibitz, Tali and Korman, Simon},
-        booktitle=CVPR,
-        year={2022}
-      }
-</code></pre>
+        <pre><code>???????</code></pre>
     </div>
 </section>
 
