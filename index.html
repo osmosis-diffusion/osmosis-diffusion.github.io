@@ -40,7 +40,6 @@
 </head>
 <body>
 
-
 <section class="hero">
     <div class="hero-body">
         <div class="container">
@@ -150,46 +149,50 @@
         <div class="container">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
-                    <h1 class="title is-3">Denoising of Low-Light Scene</h1>
+                    <h1 class="title is-3">Underwater Image Restoration</h1>
+                    <h1 class="title is-6">Results Comparison for Underwater Image Restoration</h1>
                     <span class="link-block">
-<!--                         <a href="https://www.dropbox.com/sh/pmbjan5zvgwwjod/AAAQX1quY0QnCufSJh9ETqn_a?dl=1" -->
-                        <a href="https://drive.google.com/uc?export=download&id=1Mc8yC7Dv9FJRBo-t4vnHC6psRSwcmTyr"
+                        <a href=""
                            class="button is-normal is-rounded is-dark">
                           <span class="icon"> <i class="fas fa-images is-size-4"></i> </span>
-                          <span> &nbsp Download real world raw data</span>
+                          <span> &nbsp Download Underwater Dataset</span>
                         </a>
                     </span>
-                    <h1 class="title is-6">We took the images with a Google Pixel 4. <br><br>
-                        We used only 8 images per burst, due to BPN's architectural limitation.
-                        <br>The data contains more images per scene.</h1>
+                    <span class="link-block">
+                        <a href=""
+                           class="button is-normal is-rounded is-dark">
+                          <span class="icon"> <i class="fas fa-images is-size-4"></i> </span>
+                          <span> &nbsp Download Results</span>
+                        </a>
+                    </span>
                     <div class="row">
                         <div class="column-viewer">
                             <button class="button-syn" onclick="change_scene_real(0);">
-                                <h1 class="is-text is-size-4 has-text-weight-semibold">Porch</h1>
+                                <h1 class="is-text is-size-4 has-text-weight-semibold">Image#1</h1>
                                 <input type="image" src="images/BD/real/0/nan.png"
                                        style="border: double; border-radius: inherit" height="50"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(1);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Lettuces</h1>
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Image#2</h1>
                                 <input type="image" src="images/BD/real/1/nan.png"
                                        style="border: double; border-radius: inherit" height="50"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(2);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Flowers</h1>
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Image#3</h1>
                                 <input type="image" src="images/BD/real/2/nan.png"
                                        style="border: double; border-radius: inherit" height="50"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(3);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Plant</h1>
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Image#4</h1>
                                 <input type="image" src="images/BD/real/3/nan.png"
                                        style="border: double; border-radius: inherit" height="50"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(4);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Stairs</h1>
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">Image#5</h1>
                                 <input type="image" src="images/BD/real/4/nan.png"
                                        style="border: double; border-radius: inherit" height="50"/>
                             </button>
@@ -267,16 +270,17 @@
         <div class="container">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
-                    <h1 class="title is-3">Denoising of Synthetic Noise (Real-World Displacements)</h1>
-                    <h1 class="title is-4">LLFF-<i>N</i> Dataset - Gain 20</h1>
-                    <h1 class="title is-6">
-                        This is the validation set that was used in IBRNet  <a class="ref" href="#ibrnet">[3]</a>,
-                        which is build on scenes from LLFF <a class="ref" href="#llff">[4]</a> and NeRF <a class="ref" href="#nerf">[5]</a>.
-                        <br>
-                        We describe in the paper the way we add noise to the clean images.</h1>
+                    <h1 class="title is-3">Monocular Depth Estimation</h1>
+                    <h1 class="title is-6">Results Comparison for Depth Estimation</h1>
                     <span class="link-block">
-<!--                         <a href="https://www.dropbox.com/s/qou0r51tk7xd8b0/llffn_BD_results.zip?dl=1" -->
-                        <a href="https://drive.google.com/uc?export=download&id=1ZmouhTXyJO_gwonIiugZ3gcocLsMt5nb"
+                        <a href=""
+                           class="button is-normal is-rounded is-dark">
+                          <span class="icon"> <i class="fas fa-images is-size-4"></i> </span>
+                          <span> &nbsp Download Underwater Dataset</span>
+                        </a>
+                    </span>
+                    <span class="link-block">
+                        <a href=""
                            class="button is-normal is-rounded is-dark">
                           <span class="icon"> <i class="fas fa-images is-size-4"></i> </span>
                           <span> &nbsp Download results</span>
@@ -400,120 +404,6 @@
         </div>
     </div>
 </section>
-
-
-<section class="hero">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column has-text-centered">
-                    <h1 class="title is-3">Novel View Synthesis Under Noise Conditions</h1>
-                    <h1 class="title is-4">LLFF-<i>N</i> Dataset - Gain 20</h1>
-                    <h1 class="title is-6">In the novel view task, the target frame is not available to the network, as opposed to the denoising task.</h1>
-                    <div class="row">
-                        <div class="column-viewer">
-                            <button class="button-syn" onclick="change_scene_syn_nv(0);">
-                                <h1 class="is-text is-size-4 has-text-weight-semibold">Fern</h1>
-                                <input type="image" src="images/NV/llffn/0/gt.png"
-                                       style="border: double; border-radius: inherit" height="50"/>
-                            </button>
-
-                            <button class="button-syn" onclick="change_scene_syn_nv(1);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Flower</h1>
-                                <input type="image" src="images/NV/llffn/1/gt.png"
-                                       style="border: double; border-radius: inherit" height="50"/>
-                            </button>
-
-                            <button class="button-syn" onclick="change_scene_syn_nv(2);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Fortress</h1>
-                                <input type="image" src="images/NV/llffn/2/gt.png"
-                                       style="border: double; border-radius: inherit" height="50"/>
-                            </button>
-
-                            <button class="button-syn" onclick="change_scene_syn_nv(3);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Horns</h1>
-                                <input type="image" src="images/NV/llffn/3/gt.png"
-                                       style="border: double; border-radius: inherit" height="50"/>
-                            </button>
-
-                            <button class="button-syn" onclick="change_scene_syn_nv(4);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Leaves</h1>
-                                <input type="image" src="images/NV/llffn/4/gt.png"
-                                       style="border: double; border-radius: inherit" height="50"/>
-                            </button>
-
-                            <button class="button-syn" onclick="change_scene_syn_nv(5);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Orchids</h1>
-                                <input type="image" src="images/NV/llffn/5/gt.png"
-                                       style="border: double; border-radius: inherit" height="50"/>
-                            </button>
-
-                            <button class="button-syn" onclick="change_scene_syn_nv(6);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Room</h1>
-                                <input type="image" src="images/NV/llffn/6/gt.png"
-                                       style="border: double; border-radius: inherit" height="50"/>
-                            </button>
-
-                            <button class="button-syn" onclick="change_scene_syn_nv(7);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">T-rex</h1>
-                                <input type="image" src="images/NV/llffn/7/gt.png"
-                                       style="border: double; border-radius: inherit" height="50"/>
-                            </button>
-
-                            <p><br></p>
-                            <script>
-                                function change_scene_syn_nv(id) {
-                                    syn_main_nv.src = "images/NV/llffn/" + id + "/noisy.png";
-                                    syn_noisy_nv.src = "images/NV/llffn/" + id + "/noisy.png";
-                                    syn_gt_nv.src = "images/NV/llffn/" + id + "/gt.png";
-                                    syn_avg_nv.src = "images/NV/llffn/" + id + "/avg.png";
-                                    syn_ibrnet_nv.src = "images/NV/llffn/" + id + "/ibrnet.png";
-                                    syn_ibrnetn_nv.src = "images/NV/llffn/" + id + "/ibrnetn.png";
-                                    syn_nan_nv.src = "images/NV/llffn/" + id + "/nan.png";
-                                }
-                            </script>
-                            <a href='images/NV/llffn/0/noisy.png'> <img class='llff-viewer' id="syn_main_nv"
-                                                                        src="images/NV/llffn/0/noisy.png"></a>
-                        </div>
-                        <div class="column-thumbnail-title">
-                            <h1 class="title is-6"> You can cycle through the images by pressing key
-                                <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
-                                <span class="rcorners" style="border: 3px solid #CCCCFF"> 6 </span> .
-                            </h1>
-                            <div class="column-thumbnail">
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Noisy frame</h1>
-                                <img src="images/NV/llffn/0/noisy.png" id="syn_noisy_nv" onload="setBorderSynNV(this);"
-                                     onClick="replaceImage(this,syn_main_nv);">
-
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. GT frame</h1>
-                                <img src="images/NV/llffn/0/gt.png" id="syn_gt_nv" onload="setBorderSynNV(this);"
-                                     onClick="replaceImage(this,syn_main_nv);">
-
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. Burst Average</h1>
-                                <img src="images/NV/llffn/0/avg.png" id="syn_avg_nv" onload="setBorderSynNV(this);"
-                                     onClick="replaceImage(this,syn_main_nv);">
-                            </div>
-                            <div class="column-thumbnail">
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">4. IBRNet <a class="ref" href="#ibrnet">[3]</a></h1>
-                                <img src="images/NV/llffn/0/ibrnet.png" id="syn_ibrnet_nv" onload="setBorderSynNV(this);"
-                                     onClick="replaceImage(this,syn_main_nv);">
-
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">5. IBRNet-<i>N</i></h1>
-                                <img src="images/NV/llffn/0/ibrnetn.png" id="syn_ibrnetn_nv" onload="setBorderSynNV(this);"
-                                     onClick="replaceImage(this,syn_main_nv);">
-
-                                <p class="is-text is-size-6 has-text-weight-semibold">6. NAN</p>
-                                <img src="images/NV/llffn/0/nan.png" id="syn_nan_nv" onload="setBorderSynNV(this);"
-                                     onClick="replaceImage(this,syn_main_nv);">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <script>
     document.onkeydown = keyHandler;
