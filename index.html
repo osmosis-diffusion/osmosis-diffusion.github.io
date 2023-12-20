@@ -151,6 +151,7 @@
                 <div class="column has-text-centered">
                     <h1 class="title is-3">Underwater Image Restoration</h1>
                     <h1 class="title is-6">Results Comparison for Underwater Image Restoration</h1>
+                    <!-- dataset link -->
                     <span class="link-block">
                         <a href=""
                            class="button is-normal is-rounded is-dark">
@@ -158,6 +159,7 @@
                           <span> &nbsp Download Underwater Dataset</span>
                         </a>
                     </span>
+                    <!-- Image restoration results link -->
                     <span class="link-block">
                         <a href=""
                            class="button is-normal is-rounded is-dark">
@@ -165,34 +167,37 @@
                           <span> &nbsp Download Results</span>
                         </a>
                     </span>
+
                     <div class="row">
+                        
+                        <!-- scenes small images - with click option -->
                         <div class="column-viewer">
                             <button class="button-syn" onclick="change_scene_real(0);">
-                                <h1 class="is-text is-size-4 has-text-weight-semibold">Image#1</h1>
+                                <h1 class="is-text is-size-4 has-text-weight-semibold">scene#1</h1>
                                 <input type="image" src="images/BD/real/0/nan.png"
                                        style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(1);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Image#2</h1>
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">scene#2</h1>
                                 <input type="image" src="images/BD/real/1/nan.png"
                                        style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(2);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Image#3</h1>
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">scene#3</h1>
                                 <input type="image" src="images/BD/real/2/nan.png"
                                        style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(3);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Image#4</h1>
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">scene#4</h1>
                                 <input type="image" src="images/BD/real/3/nan.png"
                                        style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(4);">
-                                <h1 class="is-text is-size-4  has-text-weight-semibold">Image#5</h1>
+                                <h1 class="is-text is-size-4  has-text-weight-semibold">scene#5</h1>
                                 <input type="image" src="images/BD/real/4/nan.png"
                                        style="border: double; border-radius: inherit" height="75"/>
                             </button>
@@ -213,13 +218,17 @@
                                 }
                             </script>
                             <a href='images/BD/real/0/dark.png'> <img class='llff-viewer' id="real_main"
-                                                                   src="images/BD/real/0/dark.png"></a>
+                                                                   src="images/BD/real/0/dark.png"
+                                                                   style="height: 256px;"></a>
                         </div>
+
+                        <!-- results small images - with click option -->
                         <div class="column-thumbnail-title">
                             <h1 class="title is-6"> You can cycle through the images by pressing key
                                 <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
                                 <span class="rcorners" style="border: 3px solid #CCCCFF"> 8 </span> .
                             </h1>
+                            <!-- column 1 -->
                             <div class="column-thumbnail">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">1. Dark frame</h1>
                                 <img src="images/BD/real/0/dark.png" id="real_dark" onload="setBorderReal(this);"
@@ -237,6 +246,7 @@
                                 <img src="images/BD/real/0/hdr.png" id="real_hdr" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
                             </div>
+                            <!-- column 2 -->
                             <div class="column-thumbnail">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">5. BPN <a class="ref" href="#bpn">[1]</a> </h1>
                                 <img src="images/BD/real/0/bpn.png" id="real_bpn" onload="setBorderReal(this);"
@@ -256,7 +266,9 @@
                                      onClick="replaceImage(this,real_main);">
 
                             </div>
+
                             <h1><sup>*</sup>We use the implementation from <a class="ref" href="#hdrimp">[7]</a> </h1>
+
                         </div>
                     </div>
                 </div>
