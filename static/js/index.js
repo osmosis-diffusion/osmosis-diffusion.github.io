@@ -85,47 +85,47 @@ function keyHandler(event) {
 
 	switch( key_code ) {
 	case 49: // 1
-		replaceImage(real_dark,real_main);
+		replaceImage(rgb_uw,rgb_main);
 		replaceImage(syn_noisy,syn_main);
 		replaceImage(syn_noisy_nv,syn_main_nv);
 		break;
 	case 50: // 2
-		replaceImage(real_pre,real_main);
+		replaceImage(rgb_contrast,rgb_main);
 		replaceImage(syn_gt,syn_main);
 		replaceImage(syn_gt_nv,syn_main_nv);
 
 		break;
 	case 51: // 3
-		replaceImage(real_avg,real_main);
+		replaceImage(rgb_gdcp,rgb_main);
 		replaceImage(syn_avg,syn_main);
 		replaceImage(syn_avg_nv,syn_main_nv);
 
 		break;
 	case 52: // 4
-		replaceImage(real_hdr,real_main);
+		replaceImage(rgb_ucolor,rgb_main);
 		replaceImage(syn_bpn,syn_main);
 		replaceImage(syn_ibrnet_nv,syn_main_nv);
 
 		break;
 	case 53: // 5
-		replaceImage(real_bpn,real_main);
+		replaceImage(rgb_cwr,rgb_main);
 		replaceImage(syn_deeprep,syn_main);
 		replaceImage(syn_ibrnetn_nv,syn_main_nv);
 
 		break;
 	case 54: // 6
-		replaceImage(real_deeprep,real_main);
+		replaceImage(rgb_semiuir,rgb_main);
 		replaceImage(syn_ibrnetn,syn_main);
 		replaceImage(syn_nan_nv,syn_main_nv);
 
 		break;
 	case 55: // 7
-		replaceImage(real_ibrnetn,real_main);
+		replaceImage(rgb_dm,rgb_main);
 		replaceImage(syn_nan,syn_main);
 
 		break;
 	case 56: // 8
-		replaceImage(real_nan,real_main);
+		replaceImage(rgb_osmosis,rgb_main);
 		break;
 	}
 }
