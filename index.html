@@ -204,14 +204,14 @@
                             <script>
                                 function change_scene_real(id) {
                                     real_main.src = "images/rgb/scene" + id + "/input.png";
-                                    real_dark.src = "images/BD/real/" + id + "/dark.png";
+                                    real_uw.src = "images/rgb/scene" + id + "/input.png";
                                     real_pre.src = "images/BD/real/" + id + "/pre.png";
                                     real_avg.src = "images/BD/real/" + id + "/avg.png";
                                     real_hdr.src = "images/BD/real/" + id + "/hdr.png";
                                     real_deeprep.src = "images/BD/real/" + id + "/deeprep.png";
                                     real_bpn.src = "images/BD/real/" + id + "/bpn.png";
                                     real_ibrnetn.src = "images/BD/real/" + id + "/ibrnetn.png";
-                                    real_nan.src = "images/rgb/scene" + id + "/osmosis.png";
+                                    real_osmosis.src = "images/rgb/scene" + id + "/osmosis.png";
                                     // replaceImage(dark, viewer)
                                 }
                             </script>
@@ -229,7 +229,7 @@
                             </h1>
                             <!-- column 1 -->
                             <div class="column-thumbnail">
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Dark frame</h1>
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
                                 <img src="images/BD/real/0/dark.png" id="real_dark" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
 
@@ -256,12 +256,11 @@
                                      onClick="replaceImage(this,real_main);">
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">7. IBRNet-<i>N</i></h1>
-<!--                                <img src="images/BD/real/0/ibrnetn.png" id="real_ibrnetn" onload="setBorderReal(this);"-->
                                 <img src="images/BD/real/0/ibrnetn.png" id="real_ibrnetn" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
 
-                                <p class="is-text is-size-6 has-text-weight-semibold">8. NAN</p>
-                                <img src="images/BD/real/0/nan.png" id="real_nan" onload="setBorderReal(this);"
+                                <p class="is-text is-size-6 has-text-weight-semibold">8. Osmosis</p>
+                                <img src="images/rgb/scene1/osmosis.png" id="real_osmosis" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
 
                             </div>
