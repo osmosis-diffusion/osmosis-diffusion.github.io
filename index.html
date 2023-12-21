@@ -304,6 +304,152 @@
                 <div class="column has-text-centered">
                     <h1 class="title is-3">Underwater Monocular Depth Estimation</h1>
                     <h1 class="title is-6">Results Comparison for Depth Estimation</h1>
+                    
+                    <span class="link-block">
+                        <a href=""
+                           class="button is-normal is-rounded is-dark">
+                          <span class="icon"> <i class="fas fa-images is-size-4"></i> </span>
+                          <span> &nbsp Download Underwater Dataset</span>
+                        </a>
+                    </span>
+                    <span class="link-block">
+                        <a href=""
+                           class="button is-normal is-rounded is-dark">
+                          <span class="icon"> <i class="fas fa-images is-size-4"></i> </span>
+                          <span> &nbsp Download results</span>
+                        </a>
+                    </span>
+
+                    <div class="row">
+
+                        <!-- scenes small images - with click option -->
+                        <div class="column-viewer">
+                            <button class="button-syn" onclick="change_scene_real(1);">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">scene#1</h1>
+                                <input type="image" src="images/depth/scene1/input_rgb.png"
+                                       style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(2);">
+                                <h1 class="is-text is-size-6  has-text-weight-semibold">scene#2</h1>
+                                <input type="image" src="images/depth/scene2/input_rgb.png"
+                                       style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(3);">
+                                <h1 class="is-text is-size-6  has-text-weight-semibold">scene#3</h1>
+                                <input type="image" src="images/depth/scene3/input_rgb.png"
+                                       style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(4);">
+                                <h1 class="is-text is-size-6  has-text-weight-semibold">scene#4</h1>
+                                <input type="image" src="images/depth/scene4/input_rgb.png"
+                                       style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(5);">
+                                <h1 class="is-text is-size-6  has-text-weight-semibold">scene#5</h1>
+                                <input type="image" src="images/depth/scene5/input_rgb.png"
+                                       style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(6);">
+                                <h1 class="is-text is-size-6  has-text-weight-semibold">scene#6</h1>
+                                <input type="image" src="images/depth/scene6/input_rgb.png"
+                                       style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(7);">
+                                <h1 class="is-text is-size-6  has-text-weight-semibold">scene#7</h1>
+                                <input type="image" src="images/depth/scene7/input_rgb.png"
+                                       style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(8);">
+                                <h1 class="is-text is-size-6  has-text-weight-semibold">scene#8</h1>
+                                <input type="image" src="images/depth/scene8/input_rgb.png"
+                                       style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+
+                            <button class="button-syn" onclick="change_scene_real(9);">
+                                <h1 class="is-text is-size-6  has-text-weight-semibold">scene#9</h1>
+                                <input type="image" src="images/depth/scene9/input_rgb.png"
+                                       style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+
+                            <p><br></p>
+                            <script>
+                                function change_scene_real(id) {
+                                    depth_main.src = "images/depth/scene" + id + "/input_rgb.png";
+                                    depth_uw.src = "images/depth/scene" + id + "/input_rgb.png";
+                                    depth_gdcp.src = "images/depth/scene" + id + "/GDCP_depth.png";
+                                    depth_ibla.src = "images/depth/scene" + id + "/IBLA_depth.png";
+                                    depth_uv.src = "images/depth/scene" + id + "/unveiling_depth.png";
+                                    depth_uwnet.src = "images/depth/scene" + id + "/UW-Net_depth.png";
+                                    depth_monouwnet.src = "images/depth/scene" + id + "/monoUWnet_depth.png";
+                                    depth_osmosis.src = "images/depth/scene" + id + "/osmosis.png";
+                                    // replaceImage(dark, viewer)
+                                }
+                            </script>
+                            <a> <img class='llff-viewer' id="rgb_main"
+                                                        src="images/depth/scene1/input_rgb.png"
+                                                        style="width: 500px; height: 500px; display: block; margin: 0 auto;"></a>
+
+                        </div>
+
+                        <div class="column-thumbnail-title">
+                            <h1 class="title is-6"> You can cycle through the images by pressing key
+                                <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
+                                <span class="rcorners" style="border: 3px solid #CCCCFF"> 7 </span> .
+                            </h1>
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
+                                <img src="images/depth/scene1/input_rgb.png" id="depth_uw" onload="setBorderDepth(this);"
+                                     onClick="replaceImage(this,depth_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. GDCP <a class="ref" href="#gdcp">[1]</a> </h1>
+                                <img src="images/depth/scene1/GDCP_depth.png" id="depth_gdcp" onload="setBorderDepth(this);"
+                                     onClick="replaceImage(this,depth_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. IBLA <a class="ref" href="#ibla">[6]</a> </h1>
+                                <img src="images/depth/scene1/IBLA_depth.png" id="depth_ibla" onload="setBorderDepth(this);"
+                                     onClick="replaceImage(this,depth_main);">
+                            </div>
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">4. Unveiling <a class="ref" href="#uv">[7]</a> </h1>
+                                <img src="images/depth/scene1/unveiling_depth.png" id="depth_uv" onload="setBorderDepth(this);"
+                                     onClick="replaceImage(this,depth_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">5. UW-Net <a class="ref" href="#uwnet">[8]</a> </h1>
+                                <img src="images/depth/scene1/UW-Net_depth.png" id="depth_uwnet" onload="setBorderDepth(this);"
+                                     onClick="replaceImage(this,depth_main);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">6. monoUWnet <a class="ref" href="#monouwnet">[9]</a> </h1>
+                                <img src="images/depth/scene1/monoUWnet_depth.png" id="depth_monouwnet" onload="setBorderDepth(this);"
+                                     onClick="replaceImage(this,depth_main);">
+
+                                <p class="is-text is-size-6 has-text-weight-semibold">7. Osmosis</p>
+                                <img src="images/depth/scene1/osmosis_depth.png" id="depth_osmosis" onload="setBorderDepth(this);"
+                                     onClick="replaceImage(this,depth_main);">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Template of NAN -->
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-3">Underwater Monocular Depth Estimation</h1>
+                    <h1 class="title is-6">Results Comparison for Depth Estimation</h1>
                     <span class="link-block">
                         <a href=""
                            class="button is-normal is-rounded is-dark">
@@ -523,7 +669,19 @@
                         <i>In Proc. IEEE CVPR</i>, 2023. </a></li>
                     <li class="citation-item"><a class="citation" id="dm">Tang, Yi, et al.
                         "Underwater image enhancement by transformer-based diffusion model with non-uniform sampling for skip strategy."
-                        <i>In ACM International Conference on Multimedia</i>, 2023. </a></li>
+                        <i>In Proc. ACM International Conference on Multimedia</i>, 2023. </a></li>
+                    <li class="citation-item"><a class="citation" id="ibla">Peng, Yan-Tsung, et al.
+                        "Underwater image restoration based on image blurriness and light absorption."
+                        <i>IEEE TIP</i>, 2017. </a></li>
+                    <li class="citation-item"><a class="citation" id="uv">Bekerman, Yael, et al.
+                        "Unveiling optical properties in underwater images."
+                        <i>ICCP</i>, 2020. </a></li>
+                    <li class="citation-item"><a class="citation" id="uwnet">Gupta, Honey, et al.
+                        "Unsupervised single image underwater depth estimation."
+                        <i>ICIP</i>, 2019. </a></li>
+                    <li class="citation-item"><a class="citation" id="monouwnet">Amitai, Shlomi, et al.
+                        "Self supervised monocular depth underwater."
+                        <i>ICRA</i>, 2023. </a></li>
                 </ol>
             </div>
         </div>
