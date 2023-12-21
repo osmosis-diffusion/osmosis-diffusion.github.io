@@ -179,14 +179,14 @@ function SynColorsNV(id)
 
 function RealColors(id)
 {
-	if(id === "real_dark") {return colors[1];}
-	else if(id === "real_pre") {return colors[2];}
-	else if(id === "real_avg") {return colors[3];}
-	else if(id === "real_bpn") {return colors[4];}
-	else if(id === "real_deeprep") {return colors[5];}
-	else if(id === "real_ibrnetn") {return colors[6];}
-	else if(id === "real_nan") {return colors[7];}
-	else if(id === "real_hdr") {return colors[8];}
+	if(id === "rgb_uw") {return colors[1];}
+	else if(id === "rgb_contrast") {return colors[2];}
+	else if(id === "rgb_gdcp") {return colors[3];}
+	else if(id === "rgb_ucolor") {return colors[4];}
+	else if(id === "rgb_cwr") {return colors[5];}
+	else if(id === "rgb_semiuir") {return colors[6];}
+	else if(id === "rgb_dm") {return colors[7];}
+	else if(id === "rgb_osmosis") {return colors[8];}
 }
 
 

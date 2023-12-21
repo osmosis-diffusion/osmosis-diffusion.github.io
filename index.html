@@ -227,15 +227,15 @@
                             <p><br></p>
                             <script>
                                 function change_scene_real(id) {
-                                    real_main.src = "images/rgb/scene" + id + "/input.png";
-                                    real_uw.src = "images/rgb/scene" + id + "/input.png";
-                                    real_pre.src = "images/BD/real/" + id + "/pre.png";
-                                    real_avg.src = "images/BD/real/" + id + "/avg.png";
-                                    real_hdr.src = "images/BD/real/" + id + "/hdr.png";
-                                    real_deeprep.src = "images/BD/real/" + id + "/deeprep.png";
-                                    real_bpn.src = "images/BD/real/" + id + "/bpn.png";
-                                    real_ibrnetn.src = "images/BD/real/" + id + "/ibrnetn.png";
-                                    real_osmosis.src = "images/rgb/scene" + id + "/osmosis.png";
+                                    rgb_main.src = "images/rgb/scene" + id + "/input.png";
+                                    rgb_uw.src = "images/rgb/scene" + id + "/input.png";
+                                    rgb_contrast.src = "images/rgb/scene" + id + "/contrast_stertch.png";
+                                    rgb_gdcp.src = "images/rgb/scene" + id + "/GDCP.png";
+                                    rgb_ucolor.src = "images/rgb/scene" + id + "/Ucolor.png";
+                                    rgb_cwr.src = "images/rgb/scene" + id + "/CWR.png";
+                                    rgb_semiuir.src = "images/rgb/scene" + id + "/semi-UIR.png";
+                                    rgb_dm.src = "images/rgb/scene" + id + "/DM.png";
+                                    rgb_osmosis.src = "images/rgb/scene" + id + "/osmosis.png";
                                     // replaceImage(dark, viewer)
                                 }
                             </script>
@@ -254,37 +254,37 @@
                             <!-- column 1 -->
                             <div class="column-thumbnail">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
-                                <img src="images/rgb/scene1/input.png" id="real_uw" onload="setBorderReal(this);"
+                                <img src="images/rgb/scene1/input.png" id="rgb_uw" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. Pre-processed</h1>
-                                <img src="images/BD/real/0/pre.png" id="real_pre" onload="setBorderReal(this);"
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. Contrast Stretch</h1>
+                                <img src="images/rgb/scene1/contrast_stertch.png" id="rgb_contrast" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. Burst Average</h1>
-                                <img src="images/BD/real/0/avg.png" id="real_avg" onload="setBorderReal(this);"
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. GDCP</h1>
+                                <img src="images/rgb/scene1/GDCP.png" id="rgb_gdcp" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">4. HDR+ <a class="ref" href="#hdr">[6]</a><sup>*</sup> </h1>
-                                <img src="images/BD/real/0/hdr.png" id="real_hdr" onload="setBorderReal(this);"
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">4. Ucolor <a class="ref" href="#hdr">[6]</a><sup>*</sup> </h1>
+                                <img src="images/rgb/scene1/Ucolor.png" id="rgb_ucolor" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
                             </div>
                             <!-- column 2 -->
                             <div class="column-thumbnail">
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">5. BPN <a class="ref" href="#bpn">[1]</a> </h1>
-                                <img src="images/BD/real/0/bpn.png" id="real_bpn" onload="setBorderReal(this);"
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">5. CWR <a class="ref" href="#bpn">[1]</a> </h1>
+                                <img src="images/rgb/scene1/CWR.png" id="rgb_cwr" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">6. Deep-Rep <a class="ref" href="#deeprep">[2]</a> </h1>
-                                <img src="images/BD/real/0/deeprep.png" id="real_deeprep" onload="setBorderReal(this);"
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">6. Semi-UIR <a class="ref" href="#deeprep">[2]</a> </h1>
+                                <img src="images/rgb/scene1/semi-UIR.png" id="rgb_semiuir" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">7. IBRNet-<i>N</i></h1>
-                                <img src="images/BD/real/0/ibrnetn.png" id="real_ibrnetn" onload="setBorderReal(this);"
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">7. DM </h1>
+                                <img src="images/rgb/scene1/DM.png" id="rgb_dm" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
 
                                 <p class="is-text is-size-6 has-text-weight-semibold">8. Osmosis</p>
-                                <img src="images/rgb/scene1/osmosis.png" id="real_osmosis" onload="setBorderReal(this);"
+                                <img src="images/rgb/scene1/osmosis.png" id="rgb_osmosis" onload="setBorderReal(this);"
                                      onClick="replaceImage(this,real_main);">
 
                             </div>
