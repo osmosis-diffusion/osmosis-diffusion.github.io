@@ -86,42 +86,42 @@ function keyHandler(event) {
 	switch( key_code ) {
 	case 49: // 1
 		replaceImage(rgb_uw,rgb_main);
-		replaceImage(syn_noisy,syn_main);
-		replaceImage(syn_noisy_nv,syn_main_nv);
+		// replaceImage(syn_noisy,syn_main);
+		// replaceImage(syn_noisy_nv,syn_main_nv);
 		break;
 	case 50: // 2
 		replaceImage(rgb_contrast,rgb_main);
-		replaceImage(syn_gt,syn_main);
-		replaceImage(syn_gt_nv,syn_main_nv);
+		// replaceImage(syn_gt,syn_main);
+		// replaceImage(syn_gt_nv,syn_main_nv);
 
 		break;
 	case 51: // 3
 		replaceImage(rgb_gdcp,rgb_main);
-		replaceImage(syn_avg,syn_main);
-		replaceImage(syn_avg_nv,syn_main_nv);
+		// replaceImage(syn_avg,syn_main);
+		// replaceImage(syn_avg_nv,syn_main_nv);
 
 		break;
 	case 52: // 4
 		replaceImage(rgb_ucolor,rgb_main);
-		replaceImage(syn_bpn,syn_main);
-		replaceImage(syn_ibrnet_nv,syn_main_nv);
+		// replaceImage(syn_bpn,syn_main);
+		// replaceImage(syn_ibrnet_nv,syn_main_nv);
 
 		break;
 	case 53: // 5
 		replaceImage(rgb_cwr,rgb_main);
-		replaceImage(syn_deeprep,syn_main);
-		replaceImage(syn_ibrnetn_nv,syn_main_nv);
+		// replaceImage(syn_deeprep,syn_main);
+		// replaceImage(syn_ibrnetn_nv,syn_main_nv);
 
 		break;
 	case 54: // 6
 		replaceImage(rgb_semiuir,rgb_main);
-		replaceImage(syn_ibrnetn,syn_main);
-		replaceImage(syn_nan_nv,syn_main_nv);
+		// replaceImage(syn_ibrnetn,syn_main);
+		// replaceImage(syn_nan_nv,syn_main_nv);
 
 		break;
 	case 55: // 7
 		replaceImage(rgb_dm,rgb_main);
-		replaceImage(syn_nan,syn_main);
+		// replaceImage(syn_nan,syn_main);
 
 		break;
 	case 56: // 8
