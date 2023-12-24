@@ -19,7 +19,12 @@
 
         gtag('config', 'G-PYVRSFMDRL');
     </script>
-
+    
+    <title>LaTeX in HTML</title>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
           rel="stylesheet">
 
@@ -45,8 +50,8 @@
         <div class="container">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title">Osmosis: RGBD Diffusion Prior for Underwater Image Restoration</h1>
-                    <h1 class="title is-1 publication-title">Under Construction</h1>
+                    <h1 class="title is-1 publication-title mb-4">Osmosis: <br> RGBD Diffusion Prior for <br> Underwater Image Restoration</h1>
+                    <br>
                     <div class="is-size-5 publication-authors">
                         <span class="author-block">Opher Bar Nathan<sup>1</sup>,</span>
                         <span class="author-block">Deborah Levy<sup>1</sup>,</span>
@@ -57,6 +62,7 @@
                         <a href="https://danrsm.github.io/">Dan Rosenbaum</a><sup>2</sup>
                         </span>
                     </div>
+                    <br>
                     <div class="is-size-5 publication-authors">
                         <span class="institution-block">
                           <span class="instit"><sup>1</sup>Dept. of Marine Technologies,
@@ -148,7 +154,7 @@
             <div class="columns is-centered">
                 <div class="column has-text-centered">
                     <h1 class="title is-3">Underwater Image Restoration</h1>
-                    <h1 class="title is-6">Results Comparison for Underwater Image Restoration</h1>
+                    <h1 class="title is-5">Results Comparison for Underwater Image Restoration</h1>
                     <!-- dataset link -->
                     <span class="link-block">
                         <a href=""
@@ -303,7 +309,7 @@
             <div class="columns is-centered">
                 <div class="column has-text-centered">
                     <h1 class="title is-3">Underwater Monocular Depth Estimation</h1>
-                    <h1 class="title is-6">Results Comparison for Depth Estimation</h1>
+                    <h1 class="title is-5">Results Comparison for Depth Estimation</h1>
                     
                     <span class="link-block">
                         <a href=""
@@ -589,8 +595,20 @@
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
-                <div class="column has-text-centered">
-                    <h1 class="title is-3">Underwater Image Formation Model</h1>
+                <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the image -->
+                    <img src="./figures/image_formation_model.gif" loop>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-three-quarters"> <!-- Left-aligned column for the text -->
+                    <h1 class="title is-5 mb-4 has-text-justified">
+                        In water, we observe two wavelength- and distance- dependent effects. 
+                        First, the \(\textit{direct}\) signal reflected from the object is attenuated. 
+                        Second, light is scattered onto the object's line-of-sight (LOS), 
+                        creating an additive signal termed \(\textit{backscatter}\) that increases with distance. 
+                        The occluding backscatter layer is independent of the scene content. 
+                        Thus, the visibility and contrast of further objects is significantly reduced 
+                        and their colors are distorted.</h1>
                 </div>
             </div>
         </div>
@@ -602,16 +620,33 @@
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
-                <div class="column has-text-centered">
+                <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the title -->
                     <h1 class="title is-3">Osmosis Algorithm Overview</h1>
-                    <img src="./figures/4_UW image formation model.gif" alt="A descriptive text for your GIF" loop>
-                    <p>
-                    </p>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the image -->
+                    <img src="./figures/osmosis_workflow.gif" loop>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-three-quarters"> <!-- Left-aligned column for the text -->
+                    <h1 class="title is-5 mb-4 has-text-justified">
+                        The iterative sampling process starts in \(t = T\) with random noise in 4 channels. 
+                        The denoising step outputs \(\mu\) and denoised samples \(\hat{x}_0\). 
+                        We use the physical image formation model together with \(\hat{x}_0\) to optimize the water parameters \(\phi\). 
+                        These are then input to the guided sampling. 
+                        This process repeats itself until \(t = 0\), 
+                        in which \(\hat{x}_0\) hold the method’s estimate 
+                        for the reconstructed scene \(\hat{J}_0\) and its depth \(\hat{D}_0\).</h1>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+
 
 <!-- Simulation Results Image Restoration -->
 <section class="hero">
