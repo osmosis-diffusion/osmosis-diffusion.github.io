@@ -74,6 +74,7 @@
                           </span>
                         </span>
                     </div>
+                    <br>
                     <div class="column has-text-centered">
                         <div class="publication-links">
                             <!-- PDF Link. -->
@@ -125,18 +126,18 @@
             <div class="column is-two-thirds">
                 <h2 class="title is-2">Abstract</h2>
                 <div class="content has-text-justified is-italic">
-                    <p>
+                    <p class="is-size-6">
                         Underwater image restoration is a challenging task because of strong water effects that increase dramatically with distance. 
                         This is worsened by lack of ground truth data of clean scenes without water. 
                         Diffusion priors have emerged as strong image restoration priors. 
                         However, they are often trained with a dataset of the desired restored output, which is not available in our case. 
                     </p>
-                    <p>  
+                    <p class="is-size-6">  
                         To overcome this critical issue, we show how to leverage in-air images to train diffusion priors for underwater restoration. 
                         We observe that only color data is insufficient, and augment the prior with a depth channel. 
                         Thus, we train an unconditional diffusion model prior on the joint space of color and depth, using standard RGBD datasets of natural outdoor scenes in air.
                     </p>
-                    <p>
+                    <p class="is-size-6">
                         Using this prior together with a novel guidance method based on the underwater image formation model, we generate posterior samples of clean images, removing the water effects. 
                         Even though our prior did not see any underwater images during training, 
                         our method outperforms state-of-the-art baselines both for image restoration and depth estimation on very challenging scenes.
@@ -590,10 +591,46 @@
 </section>
 -->
 
+
+<!-- Algorithm Figure -->
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the title -->
+                    <h1 class="title is-3">Osmosis Algorithm Overview</h1>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column has-text-centered"> <!-- Centered column for the image -->
+                    <img src="./figures/osmosis_workflow_L.gif" loop>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-three-quarters"> <!-- Left-aligned column for the text -->
+                    <h1 class="title is-5 mb-4 has-text-justified">
+                        The iterative sampling process starts in \(t = T\) with random noise in 4 channels. 
+                        The denoising step outputs \(\mu\) and denoised samples \(\hat{x}_0\). 
+                        We use the physical image formation model together with \(\hat{x}_0\) to optimize the water parameters \(\phi\). 
+                        These are then input to the guided sampling. 
+                        This process repeats itself until \(t = 0\), 
+                        in which \(\hat{x}_0\) hold the method’s estimate 
+                        for the reconstructed scene \(\hat{J}_0\) and its depth \(\hat{D}_0\).</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Underwater Image Formation Model -->
 <section class="hero">
     <div class="hero-body">
         <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the title -->
+                    <h1 class="title is-2">Background</h1>
+                </div>
+            </div>
             <div class="columns is-centered">
                 <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the image -->
                     <img src="./figures/image_formation_model.gif" loop>
@@ -615,35 +652,7 @@
     </div>
 </section>
 
-<!-- Algorithm Figure -->
-<section class="hero">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the title -->
-                    <h1 class="title is-3">Osmosis Algorithm Overview</h1>
-                </div>
-            </div>
-            <div class="columns is-centered">
-                <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the image -->
-                    <img src="./figures/osmosis_workflow.gif" loop>
-                </div>
-            </div>
-            <div class="columns is-centered">
-                <div class="column is-three-quarters"> <!-- Left-aligned column for the text -->
-                    <h1 class="title is-5 mb-4 has-text-justified">
-                        The iterative sampling process starts in \(t = T\) with random noise in 4 channels. 
-                        The denoising step outputs \(\mu\) and denoised samples \(\hat{x}_0\). 
-                        We use the physical image formation model together with \(\hat{x}_0\) to optimize the water parameters \(\phi\). 
-                        These are then input to the guided sampling. 
-                        This process repeats itself until \(t = 0\), 
-                        in which \(\hat{x}_0\) hold the method’s estimate 
-                        for the reconstructed scene \(\hat{J}_0\) and its depth \(\hat{D}_0\).</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 
 
