@@ -36,12 +36,25 @@
     <link rel="stylesheet" href="./static/css/index.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    
     <script src="./static/js/bulma-carousel.min.js"></script>
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
     <!--    <script src='./static/js/jquery.elevatezoom.js'></script>-->
     <link rel="shortcut icon" href="images/lab_icon.png" type="image/png"/>
+
+    <!-- Styles for the page and TwentyTwenty plugin -->
+    <style>
+        .twentytwenty-container img { width: 100%; }
+    </style>
+
+    <!-- Dependencies -->
+    <script src="static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="static/js/jquery.event.move.js" type="text/javascript"></script>
+    <!-- TwentyTwenty JS -->
+    <script src="static/js/jquery.twentytwenty.js" type="text/javascript"></script>
+
+
 </head>
 <body>
 
@@ -153,7 +166,7 @@
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
-                <div class="column is-three-quarters has-text-centered">
+                <div class="column has-text-centered">
                     <h1 class="title is-3">Underwater Image Restoration</h1>
                     <h1 class="title is-5">Results Comparison for Underwater Image Restoration</h1>
                     <!-- dataset link -->
@@ -172,78 +185,74 @@
                           <span> &nbsp Download Results</span>
                         </a>
                     </span>
-                    
 
-                    <br><br>
-                    <p class="has-text-justified">
-                        Here there is a comparison for several underwater scenes. <br>
-                        Choose a scene from the upper row and a work on the right columns. <br>
-                        Input Underwater image is "1. Underwater",
-                        Our results is "8. Osmosis".
-                    </p>
-                    <br>
-
-                    <div class="row">       
+                    <div class="row">
+                        
                         <!-- scenes small images - with click option -->
                         <div class="column-viewer">
                             <button class="button-syn" onclick="change_scene_real(1);">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">scene#1</h1>
                                 <input type="image" src="images/rgb/scene1/input.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(2);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#2</h1>
                                 <input type="image" src="images/rgb/scene2/input.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(3);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#3</h1>
                                 <input type="image" src="images/rgb/scene3/input.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(4);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#4</h1>
                                 <input type="image" src="images/rgb/scene4/input.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(5);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#5</h1>
                                 <input type="image" src="images/rgb/scene5/input.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(6);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#6</h1>
                                 <input type="image" src="images/rgb/scene6/input.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(7);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#7</h1>
                                 <input type="image" src="images/rgb/scene7/input.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(8);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#8</h1>
                                 <input type="image" src="images/rgb/scene8/input.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_real(9);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#9</h1>
                                 <input type="image" src="images/rgb/scene9/input.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <p><br></p>
 
                             <script>
                                 function change_scene_real(id) {
+                                    
+                                    // const mainImage = document.getElementById('rgb_main');
+                                    // const beforeImage = document.getElementById('beforeImage');
+                                    // const afterImage = document.getElementById('afterImage');
+
                                     rgb_main.src = "images/rgb/scene" + id + "/input.png";
                                     rgb_uw.src = "images/rgb/scene" + id + "/input.png";
                                     rgb_contrast.src = "images/rgb/scene" + id + "/contrast_stertch.png";
@@ -256,25 +265,21 @@
                                     // replaceImage(dark, viewer)
                                 }
                             </script>
-                        </div>   
-                    </div>
-                    
-                    <div class="row">
-
-                        <div class="column is-two-thirds">
-                            <a> <img class='llff-viewer' id="rgb_main" 
+                            
+                            <a> 
+                                <img class='llff-viewer' id="rgb_main" 
                                 src="images/rgb/scene1/input.png"
-                                style="width: 500px; height: 500px; display: block; margin: 100px auto 10px auto;"> 
+                                style="width: 500px; height: 500px; display: block; margin: 0 auto;"> 
                             </a>
+
                         </div>
-                        
+
                         <!-- results small images - with click option -->
                         <div class="column-thumbnail-title">
                             <h1 class="title is-6"> You can cycle through the images by pressing key
                                 <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
                                 <span class="rcorners" style="border: 3px solid #CCCCFF"> 8 </span> .
                             </h1>
-                            
                             <!-- column 1 -->
                             <div class="column-thumbnail">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
@@ -291,28 +296,27 @@
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">4. Ucolor <a class="ref" href="#ucolor">[2]</a> </h1>
                                 <img src="images/rgb/scene1/Ucolor.png" id="rgb_ucolor" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                    onClick="replaceImage(this,rgb_main);">
                             </div>
                             <!-- column 2 -->
                             <div class="column-thumbnail">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">5. CWR <a class="ref" href="#cwr">[3]</a> </h1>
                                 <img src="images/rgb/scene1/CWR.png" id="rgb_cwr" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                    onClick="replaceImage(this,rgb_main);">
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">6. Semi-UIR <a class="ref" href="#semiuir">[4]</a> </h1>
                                 <img src="images/rgb/scene1/semi-UIR.png" id="rgb_semiuir" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                    onClick="replaceImage(this,rgb_main);">
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">7. DM <a class="ref" href="#dm">[5]</a> </h1>
                                 <img src="images/rgb/scene1/DM.png" id="rgb_dm" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                    onClick="replaceImage(this,rgb_main);">
 
                                 <p class="is-text is-size-6 has-text-weight-semibold">8. Osmosis</p>
                                 <img src="images/rgb/scene1/osmosis.png" id="rgb_osmosis" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                    onClick="replaceImage(this,rgb_main);">
 
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -326,7 +330,7 @@
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
-                <div class="column is-three-quarters has-text-centered">
+                <div class="column has-text-centered">
                     <h1 class="title is-3">Underwater Monocular Depth Estimation</h1>
                     <h1 class="title is-5">Results Comparison for Depth Estimation</h1>
                     
@@ -345,15 +349,6 @@
                         </a>
                     </span>
 
-                    <br><br>
-                    <p class="has-text-justified">
-                        Here there is a comparison for several underwater scenes. <br>
-                        Choose a scene from the upper row and a work on the right columns. <br>
-                        Input Underwater image is "1. Underwater",
-                        Our results is "7. Osmosis".
-                    </p>
-                    <br>
-
                     <div class="row">
 
                         <!-- scenes small images - with click option -->
@@ -361,55 +356,55 @@
                             <button class="button-syn" onclick="change_scene_depth(1);">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">scene#1</h1>
                                 <input type="image" src="images/depth/scene1/input_rgb.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_depth(2);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#2</h1>
                                 <input type="image" src="images/depth/scene2/input_rgb.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_depth(3);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#3</h1>
                                 <input type="image" src="images/depth/scene3/input_rgb.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_depth(4);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#4</h1>
                                 <input type="image" src="images/depth/scene4/input_rgb.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_depth(5);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#5</h1>
                                 <input type="image" src="images/depth/scene5/input_rgb.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_depth(6);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#6</h1>
                                 <input type="image" src="images/depth/scene6/input_rgb.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_depth(7);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#7</h1>
                                 <input type="image" src="images/depth/scene7/input_rgb.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_depth(8);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#8</h1>
                                 <input type="image" src="images/depth/scene8/input_rgb.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <button class="button-syn" onclick="change_scene_depth(9);">
                                 <h1 class="is-text is-size-6  has-text-weight-semibold">scene#9</h1>
                                 <input type="image" src="images/depth/scene9/input_rgb.png"
-                                       style="border: double; border-radius: inherit" height="90"/>
+                                       style="border: double; border-radius: inherit" height="75"/>
                             </button>
 
                             <p><br></p>
@@ -426,19 +421,13 @@
                                     // replaceImage(dark, viewer)
                                 }
                             </script>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
 
-                        <div class="column is-two-thirds">
-                            <a> 
-                                <img class='llff-viewer' id="depth_main"
-                                    src="images/depth/scene1/input_rgb.png"
-                                    style="width: 500px; height: 500px; display: block; margin: 100px auto 10px auto;">
-                            </a>
+                            <a> <img class='llff-viewer' id="depth_main"
+                                        src="images/depth/scene1/input_rgb.png"
+                                        style="width: 500px; height: 500px; display: block; margin: 0 auto;"></a>
+
                         </div>
-                        
+
                         <div class="column-thumbnail-title">
                             <h1 class="title is-6"> You can cycle through the images by pressing key
                                 <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
@@ -632,24 +621,23 @@
             <div class="columns is-centered">
                 <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the title -->
                     <h1 class="title is-3">Osmosis Algorithm Overview</h1>
-                    
-                    <p class="has-text-justified">
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column has-text-centered"> <!-- Centered column for the image -->
+                    <img src="./figures/osmosis_workflow_L.gif" loop>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-three-quarters"> <!-- Left-aligned column for the text -->
+                    <h1 class="title is-5 mb-4 has-text-justified">
                         The iterative sampling process starts in \(t = T\) with random noise in 4 channels. 
                         The denoising step outputs \(\mu\) and denoised samples \(\hat{x}_0\). 
                         We use the physical image formation model together with \(\hat{x}_0\) to optimize the water parameters \(\phi\). 
                         These are then input to the guided sampling. 
                         This process repeats itself until \(t = 0\), 
                         in which \(\hat{x}_0\) hold the method’s estimate 
-                        for the reconstructed scene \(\hat{J}_0\) and its depth \(\hat{D}_0\)
-                    </p>
-                    <br>
-
-                </div>
-            </div>
-            
-            <div class="columns is-centered">
-                <div class="column has-text-centered"> <!-- Centered column for the image -->
-                    <img src="./figures/osmosis_workflow_L.gif" loop>
+                        for the reconstructed scene \(\hat{J}_0\) and its depth \(\hat{D}_0\).</h1>
                 </div>
             </div>
         </div>
@@ -662,24 +650,24 @@
         <div class="container">
             <div class="columns is-centered">
                 <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the title -->
-                    <h1 class="title is-3">Background</h1>
-                    
-                    <p class="has-text-justified">
+                    <h1 class="title is-2">Background</h1>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the image -->
+                    <img src="./figures/image_formation_model.gif" loop>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-three-quarters"> <!-- Left-aligned column for the text -->
+                    <h1 class="title is-5 mb-4 has-text-justified">
                         In water, we observe two wavelength- and distance- dependent effects. 
                         First, the \(\textit{direct}\) signal reflected from the object is attenuated. 
                         Second, light is scattered onto the object's line-of-sight (LOS), 
                         creating an additive signal termed \(\textit{backscatter}\) that increases with distance. 
                         The occluding backscatter layer is independent of the scene content. 
                         Thus, the visibility and contrast of further objects is significantly reduced 
-                        and their colors are distorted.
-                    </p>
-                    <br>
-
-                </div>
-            </div>
-            <div class="columns is-centered">
-                <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the image -->
-                    <img src="./figures/image_formation_model.gif" loop>
+                        and their colors are distorted.</h1>
                 </div>
             </div>
         </div>
@@ -721,21 +709,17 @@
 <!-- BibTex -->
 <section class="section" id="BibTeX">
     <div class="container content">
-        <div class="columns is-centered has-text-centered">
-            <div class="column is-three-quarters has-text-justified">
-                <h2 class="title">BibTeX</h2>
-                <pre><code>???????</code></pre>
-            </div> 
-        </div>
+        <h2 class="title">BibTeX</h2>
+        <pre><code>???????</code></pre>
     </div>
 </section>
 
 <!-- references -->
 <section class="section" id="refrences">
     <div class="container content">
-        <div class="columns is-centered has-text-centered">
-            <div class="column is-three-quarters has-text-justified">
-                <h2 class="title">References</h2>
+        <div class="columns">
+            <div class="column">
+                <h1 class="title">References</h1>
                 <ol  class="citation-list">
                     <li class="citation-item"><a class="citation" id="gdcp">Peng, Yan-Tsung, et al.
                         "Generalization of the dark channel prior for single image restoration."
@@ -778,11 +762,30 @@
                 The website interface is adapted from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>,
                 <a href="https://noise-aware-nerf.github.io/">NAN</a>,
                 <a href="https://dps2022.github.io/diffusion-posterior-sampling-page/">SeaThru-NeRF</a>
-                 and <a href="https://github.com/generativediffusionprior/generativediffusionprior.github.io/">GDP</a>.
+                 and <a href="https://dps2022.github.io/diffusion-posterior-sampling-page/">DPS</a>.
             </div>
         </div>
     </div>
 </footer>
+
+
+<!-- Initialize TwentyTwenty and custom click handlers on window load -->
+<script>
+    $(window).on('load', function() {
+        // Initialize TwentyTwenty plugin
+        $(".twentytwenty-container").twentytwenty({
+            default_offset_pct: 0.5,
+            orientation: 'horizontal',
+            before_label: 'Before',
+            after_label: 'After',
+            no_overlay: false,
+            move_slider_on_hover: false,
+            move_with_handle_only: true,
+            click_to_move: false
+        });
+    });
+
+</script>
 
 </body>
 

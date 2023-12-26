@@ -229,7 +229,7 @@ img:hover {
 
 .column-thumbnail {
     flex: 10%;
-    padding: 10px;
+    padding: 20px;
     align-self: center;
     align-content: center;
     align-items: center;

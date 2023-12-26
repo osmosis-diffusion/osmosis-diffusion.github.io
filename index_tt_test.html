@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Osmosis: RGBD Diffusion Prior for Underwater Image Restoration">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Osmosis: RGBD Diffusion Prior for Underwater Image Restoration</title>
+
+    <!-- <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script> -->
+
+
+    <!-- <title>LaTeX in HTML</title>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script> -->
+    
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" 
+    rel="stylesheet">
+    
+    <!-- css files -->
+     <!-- <link rel="stylesheet" href="./static/css/bulma.min.css"> -->
+    <!-- <link rel="stylesheet" href="./static/css/bulma-carousel.min.css"> -->
+    <!-- <link rel="stylesheet" href="./static/css/bulma-slider.min.css"> -->
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
+    <!-- <link rel="stylesheet" href="./static/css/index.css"> -->
+    
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+    <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
+    <!-- <script src="./static/js/bulma-slider.min.js"></script> -->
+    <!-- <script src="./static/js/index.js"></script> -->
+    <!-- <script defer src="./static/js/fontawesome.all.min.js"></script> -->
+    
+    <!-- TwentyTwenty CSS -->
+    <link rel="stylesheet" href="static/css/twentytwenty.css" type="text/css" media="screen" />
+
+    <!-- Styles for the page and TwentyTwenty plugin -->
+    <style>
+        .twentytwenty-container img { width: 100%; }
+    </style>
+
+    <!-- Dependencies -->
+    <script src="static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="static/js/jquery.event.move.js" type="text/javascript"></script>
+    <!-- TwentyTwenty JS -->
+    <script src="static/js/jquery.twentytwenty.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!-- Image Restoration comparison -->
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-3">Underwater Image Restoration</h1>
+                    <h1 class="title is-5">Results Comparison for Underwater Image Restoration</h1>
+
+                    <!-- Scenes with TwentyTwenty and clickable smaller images -->
+                    <div class="row">
+                        <div class="column-viewer">
+                            <!-- Smaller images -->
+                            <button class="button-syn" onclick="change_scene_real(1);">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">scene#1</h1>
+                                <img class="image" src="images/rgb/scene1/input.png" alt="Scene 1 Thumbnail"
+                                    style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+                            <button onclick="change_scene_real(2);">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">scene#2</h1>
+                                <img class="image" src="images/rgb/scene2/input.png" alt="Scene 2 Thumbnail"
+                                style="border: double; border-radius: inherit" height="75"/>
+                            </button>
+                        </div>
+                        
+                        <script>
+                            // Function to change main image based on thumbnail clicked
+                            function change_scene_real(id) {
+
+                                // const mainImage = document.getElementById('mainImage');
+                                // const beforeImage = document.getElementById('beforeImage');
+                                // const osmosisImage = document.getElementById('afterImage');
+                                // const elseImage = document.getElementById('elseImage');
+                                
+                                mainImage.src = "images/rgb/scene" + id + "/input.png"
+                                beforeImage.src = "images/rgb/scene" + id + "/input.png";
+                                osmosisImage.src = "images/rgb/scene" + id + "/osmosis.png";
+                                elseImage.src = "images/rgb/scene" + id + "/contrast_stertch.png";
+
+                            }
+                        </script>
+                        
+                        <!-- Large image area -->
+                        <!-- <div class="column"> -->
+                        <a>
+                            <div id="mainImage" class="twentytwenty-container">
+                            
+                                <img class="llff-viewer" id="beforeImage" 
+                                src="images/rgb/scene1/input.png"
+                                style="width: 500px; height: 500px; display: block; margin: 0 auto;"/>
+                            
+                                <img id="afterImage" 
+                                src="images/rgb/scene1/osmosis.png" 
+                                style="width: 500px; height: 500px; display: block; margin: 0 auto;"/>
+                            
+                            </div>
+                        </a>
+
+                        <!-- <a> 
+                            <img class='llff-viewer' id="rgb_main" 
+                            src="images/rgb/scene1/input.png"
+                            style="width: 500px; height: 500px; display: block; margin: 0 auto;"> 
+                        </a> -->
+
+                        <!-- </div> -->
+
+                        <!-- results small images - with click option -->
+                        <div class="column-thumbnail-title">
+                            <h1 class="title is-6"> Starships are meant to fly</h1>
+                            <!-- column 1 -->
+                            <div class="column-thumbnail">
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
+                                <img src="images/rgb/scene1/input.png" id="beforeImage" 
+                                onClick="replaceImage(this,mainImage);">
+
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. Contrast Stretch</h1>
+                                <img src="images/rgb/scene1/contrast_stertch.png" id="elseImage" 
+                                onClick="replaceImage(this,mainImage);">
+                                
+                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. Osmosis</h1>
+                                <img src="images/rgb/scene1/osmosis.png" id="osmosisImage" 
+                                onClick="replaceImage(this,mainImage);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Initialize TwentyTwenty and custom click handlers on window load -->
+<script>
+    $(window).on('load', function() {
+        // Initialize TwentyTwenty plugin
+        $(".twentytwenty-container").twentytwenty({
+            default_offset_pct: 0.5,
+            orientation: 'horizontal',
+            before_label: 'Underwater',
+            after_label: 'osmosis',
+            no_overlay: false,
+            move_slider_on_hover: false,
+            move_with_handle_only: true,
+            click_to_move: false
+        });
+    });
+
+</script>
+
+
+</body>
+</html>
