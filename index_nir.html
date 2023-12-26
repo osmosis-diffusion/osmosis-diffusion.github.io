@@ -42,7 +42,7 @@
     <script src="./static/js/index.js"></script>
     <!--    <script src='./static/js/jquery.elevatezoom.js'></script>-->
     <link rel="shortcut icon" href="images/lab_icon.png" type="image/png"/>
-
+    
     <!-- TwentyTwenty CSS -->
     <link rel="stylesheet" href="static/css/twentytwenty.css" type="text/css" media="screen" />
 
@@ -143,17 +143,19 @@
         <div class="columns is-centered has-text-centered">
             <div class="column is-two-thirds">
                 <h2 class="title is-2">Abstract</h2>
-                <div class="content has-text-justified" style="font-size: 18px;">
-                    <p>
+                <div class="content has-text-justified is-italic">
+                    <p class="is-size-6">
                         Underwater image restoration is a challenging task because of strong water effects that increase dramatically with distance. 
                         This is worsened by lack of ground truth data of clean scenes without water. 
                         Diffusion priors have emerged as strong image restoration priors. 
                         However, they are often trained with a dataset of the desired restored output, which is not available in our case. 
-                        <br><br>
+                    </p>
+                    <p class="is-size-6">  
                         To overcome this critical issue, we show how to leverage in-air images to train diffusion priors for underwater restoration. 
                         We observe that only color data is insufficient, and augment the prior with a depth channel. 
                         Thus, we train an unconditional diffusion model prior on the joint space of color and depth, using standard RGBD datasets of natural outdoor scenes in air.
-                        <br><br>
+                    </p>
+                    <p class="is-size-6">
                         Using this prior together with a novel guidance method based on the underwater image formation model, we generate posterior samples of clean images, removing the water effects. 
                         Even though our prior did not see any underwater images during training, 
                         our method outperforms state-of-the-art baselines both for image restoration and depth estimation on very challenging scenes.
@@ -189,9 +191,10 @@
                         </a>
                     </span>
                     
+
                     <br><br>
-                    <p class="has-text-justified" style="font-size: 18px;">
-                        A comparison for several underwater scenes. <br>
+                    <p class="has-text-justified">
+                        Here there is a comparison for several underwater scenes. <br>
                         Choose a scene from the upper row and a work on the right columns. <br>
                         Input Underwater image is "1. Underwater",
                         Our results is "8. Osmosis".
@@ -268,7 +271,7 @@
                                     rgb_semiuir.src = "images/rgb/scene" + id + "/semi-UIR.png";
                                     rgb_dm.src = "images/rgb/scene" + id + "/DM.png";
                                     rgb_osmosis.src = "images/rgb/scene" + id + "/osmosis.png";
-                                    rgb_static.src = "images/rgb/scene" + id + "/osmosis.png";
+                                    rgb_static.src = "images/rgb/scene" + id + "/input.png";
                                     // replaceImage(dark, viewer)
                                 }
                             </script>
@@ -282,8 +285,8 @@
                                 <!-- <img class='llff-viewer' id="rgb_main" 
                                 src="images/rgb/scene1/input.png"
                                 style="width: 500px; height: 500px; display: block; margin: 100px auto 10px auto;">  -->
-                                <div id="mainImage" class="twentytwenty-container" style="width: 500px; height: 500px; display: block; margin: 100px auto 10px auto;">
-                                    <img class='llff-viewer' id="rgb_static" src="images/rgb/scene1/osmosis.png" alt="Before"/>
+                                <div id="mainImage" class="twentytwenty-container">
+                                    <img class='llff-viewer' id="rgb_static" src="images/rgb/scene1/input.png" alt="Before"/>
                                     <img class='llff-viewer' id="rgb_main" src="images/rgb/scene1/input.png" alt="After"/>
                                 </div>
                             </a>
@@ -367,19 +370,11 @@
                     </span>
 
                     <br><br>
-                    <p class="has-text-justified" style="font-size: 18px;">
-                        A comparison for several underwater scenes. <br>
+                    <p class="has-text-justified">
+                        Here there is a comparison for several underwater scenes. <br>
                         Choose a scene from the upper row and a work on the right columns. <br>
-                        Input underwater image is "1. Underwater",
-                        Our results is "7. Osmosis". 2-6 are works which we compared to
-                        <!-- We are examining several underwater scenes <br>
-                        1. Underwater (Input): <br>
-                        Original underwater scene for comparison. <br>
-                        7. Osmosis (Our Result): <br>
-                        The result obtained from our process. <br>
-                        2-6: <br>
-                        Other works used for comparison. -->
-
+                        Input Underwater image is "1. Underwater",
+                        Our results is "7. Osmosis".
                     </p>
                     <br>
 
@@ -662,7 +657,7 @@
                 <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the title -->
                     <h1 class="title is-3">Osmosis Algorithm Overview</h1>
                     
-                    <p class="has-text-justified" style="font-size: 18px;">
+                    <p class="has-text-justified">
                         The iterative sampling process starts in \(t = T\) with random noise in 4 channels. 
                         The denoising step outputs \(\mu\) and denoised samples \(\hat{x}_0\). 
                         We use the physical image formation model together with \(\hat{x}_0\) to optimize the water parameters \(\phi\). 
@@ -693,7 +688,7 @@
                 <div class="column is-three-quarters has-text-centered"> <!-- Centered column for the title -->
                     <h1 class="title is-3">Background</h1>
                     
-                    <p class="has-text-justified" style="font-size: 18px;">
+                    <p class="has-text-justified">
                         In water, we observe two wavelength- and distance- dependent effects. 
                         First, the \(\textit{direct}\) signal reflected from the object is attenuated. 
                         Second, light is scattered onto the object's line-of-sight (LOS), 
@@ -745,10 +740,6 @@
 
 <script>
     document.onkeydown = keyHandler;
-</script>
-
-<script>
-    document.onkeydown = keyHandler;
     $(window).on('load', function() {
         // Initialize TwentyTwenty plugin
         $(".twentytwenty-container").twentytwenty({
@@ -756,12 +747,22 @@
             orientation: 'horizontal',
             before_label: 'Before',
             after_label: 'After',
-            no_overlay: true,
+            no_overlay: false,
             move_slider_on_hover: false,
             move_with_handle_only: true,
             click_to_move: false
         });
     });
+
+    // Function to change main image based on thumbnail clicked
+    // function change_scene_real(sceneNumber) {
+    //     const mainImage = document.getElementById('mainImage');
+    //     const beforeImage = document.getElementById('beforeImage');
+    //     const rgb_main = document.getElementById('rgb_main');
+        
+    //     beforeImage.src = `images/rgb/scene${sceneNumber}/input.png`;
+    //     rgb_main.src = `images/rgb/scene${sceneNumber}/input.png`;
+    // }
 </script>
 
 <!-- BibTex -->

@@ -86,42 +86,42 @@ function keyHandler(event) {
 	switch( key_code ) {
 	case 49: // 1
 		replaceImage(rgb_uw,rgb_main);
-		// replaceImage(depth_uw,depth_main);
+		replaceImage(depth_uw,depth_main);
 		// replaceImage(syn_noisy_nv,syn_main_nv);
 		break;
 	case 50: // 2
 		replaceImage(rgb_contrast,rgb_main);
-		// replaceImage(depth_gdcp,depth_main);
+		replaceImage(depth_gdcp,depth_main);
 		// replaceImage(syn_gt_nv,syn_main_nv);
 
 		break;
 	case 51: // 3
 		replaceImage(rgb_gdcp,rgb_main);
-		// replaceImage(depth_ibla,depth_main);
+		replaceImage(depth_ibla,depth_main);
 		// replaceImage(syn_avg_nv,syn_main_nv);
 
 		break;
 	case 52: // 4
 		replaceImage(rgb_ucolor,rgb_main);
-		// replaceImage(depth_uv,depth_main);
+		replaceImage(depth_uv,depth_main);
 		// replaceImage(syn_ibrnet_nv,syn_main_nv);
 
 		break;
 	case 53: // 5
 		replaceImage(rgb_cwr,rgb_main);
-		// replaceImage(depth_uwnet,depth_main);
+		replaceImage(depth_uwnet,depth_main);
 		// replaceImage(syn_ibrnetn_nv,syn_main_nv);
 
 		break;
 	case 54: // 6
 		replaceImage(rgb_semiuir,rgb_main);
-		// replaceImage(depth_monouwnet,depth_main);
+		replaceImage(depth_monouwnet,depth_main);
 		// replaceImage(syn_nan_nv,syn_main_nv);
 
 		break;
 	case 55: // 7
 		replaceImage(rgb_dm,rgb_main);
-		// replaceImage(depth_osmosis,depth_main);
+		replaceImage(depth_osmosis,depth_main);
 
 		break;
 	case 56: // 8
