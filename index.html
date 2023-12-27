@@ -389,7 +389,6 @@
                         Select a scene from the upper row and a method from the right column. <br>
                         The input underwater image is labeled '1. Underwater,' and our result is '7. Osmosis'. <br>
                         The Osmosis result is shown on the left side, with the compared method displayed on the right.
-
                     </p>
                     <br>
 
@@ -462,7 +461,9 @@
                                     depth_uwnet.src = "images/depth/scene" + id + "/UW-Net_depth.png";
                                     depth_monouwnet.src = "images/depth/scene" + id + "/monoUWnet_depth.png";
                                     depth_osmosis.src = "images/depth/scene" + id + "/osmosis_depth.png";
-                                    // replaceImage(dark, viewer)
+                                    depth_static.src = "images/depth/scene" + id + "/osmosis_depth.png";
+
+                                    mainDepth.style.borderColor = "#FFBF00";
                                 }
                             </script>
                         </div>
@@ -472,9 +473,19 @@
 
                         <div class="column is-two-thirds">
                             <a> 
-                                <img class='llff-viewer' id="depth_main"
+                                <!-- <img class='llff-viewer' id="depth_main"
                                     src="images/depth/scene1/input_rgb.png"
-                                    style="width: 500px; height: 500px; display: block; margin: 100px auto 10px auto;"/>
+                                    style="width: 500px; height: 500px; display: block; margin: 100px auto 10px auto;"/> -->
+
+                                <div id="mainDepth" class="twentytwenty-container" 
+                                    style="width: 600px; height: 600px; display: block; margin: 100px auto 10px auto;">
+                                
+                                    <img class='llff-viewer' id="depth_static" src="images/depth/scene1/osmosis_depth.png" alt="Before" 
+                                        style="border-style: none;"/>
+                                    <img class='llff-viewer' id="depth_main" src="images/depth/scene1/input_rgb.png" alt="After"
+                                        style="border-style: none;"/>
+                                </div>
+
                             </a>
                         </div>
                         
@@ -491,32 +502,39 @@
                             <div class="column-thumbnail">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
                                 <img src="images/depth/scene1/input_rgb.png" id="depth_uw" onload="setBorderDepth(this);"
-                                     onClick="replaceImage(this,depth_main);">
+                                onClick="replaceImageBorder(this,depth_main,mainDepth);">
+                                <!-- onClick="replaceImage(this,depth_main);"> -->
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">2. GDCP <a class="ref" href="#gdcp">[1]</a> </h1>
                                 <img src="images/depth/scene1/GDCP_depth.png" id="depth_gdcp" onload="setBorderDepth(this);"
-                                     onClick="replaceImage(this,depth_main);">
+                                onClick="replaceImageBorder(this,depth_main,mainDepth);">     
+                                <!-- onClick="replaceImage(this,depth_main);"> -->
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">3. IBLA <a class="ref" href="#ibla">[6]</a> </h1>
                                 <img src="images/depth/scene1/IBLA_depth.png" id="depth_ibla" onload="setBorderDepth(this);"
-                                     onClick="replaceImage(this,depth_main);">
+                                onClick="replaceImageBorder(this,depth_main,mainDepth);">     
+                                <!-- onClick="replaceImage(this,depth_main);"> -->
                             </div>
                             <div class="column-thumbnail">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">4. Unveiling <a class="ref" href="#uv">[7]</a> </h1>
                                 <img src="images/depth/scene1/unveiling_depth.png" id="depth_uv" onload="setBorderDepth(this);"
-                                     onClick="replaceImage(this,depth_main);">
+                                onClick="replaceImageBorder(this,depth_main,mainDepth);">     
+                                <!-- onClick="replaceImage(this,depth_main);"> -->
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">5. UW-Net <a class="ref" href="#uwnet">[8]</a> </h1>
                                 <img src="images/depth/scene1/UW-Net_depth.png" id="depth_uwnet" onload="setBorderDepth(this);"
-                                     onClick="replaceImage(this,depth_main);">
+                                onClick="replaceImageBorder(this,depth_main,mainDepth);">     
+                                <!-- onClick="replaceImage(this,depth_main);"> -->
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">6. monoUWnet <a class="ref" href="#monouwnet">[9]</a> </h1>
                                 <img src="images/depth/scene1/monoUWnet_depth.png" id="depth_monouwnet" onload="setBorderDepth(this);"
-                                     onClick="replaceImage(this,depth_main);">
+                                onClick="replaceImageBorder(this,depth_main,mainDepth);">
+                                <!-- onClick="replaceImage(this,depth_main);"> -->
 
                                 <p class="is-text is-size-6 has-text-weight-semibold">7. Osmosis</p>
                                 <img src="images/depth/scene1/osmosis_depth.png" id="depth_osmosis" onload="setBorderDepth(this);"
-                                     onClick="replaceImage(this,depth_main);">
+                                onClick="replaceImageBorder(this,depth_main,mainDepth);">     
+                                <!-- onClick="replaceImage(this,depth_main);"> -->
                             </div>
                         </div>
                     </div>
