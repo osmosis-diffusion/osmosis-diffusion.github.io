@@ -191,10 +191,10 @@
                     
                     <br><br>
                     <p class="has-text-justified" style="font-size: 18px;">
-                        A comparison for several underwater scenes. <br>
-                        Choose a scene from the upper row and a work on the right columns. <br>
-                        Input Underwater image is "1. Underwater",
-                        Our results is "8. Osmosis".
+                        Comparison with several underwater methods. <br>
+                        Select a scene from the upper row and a method from the right column. <br>
+                        The input underwater image is labeled '1. Underwater,' and our result is '8. Osmosis'. <br>
+                        The Osmosis result is shown on the left side, with the compared method displayed on the right.
                     </p>
                     <br>
 
@@ -269,6 +269,8 @@
                                     rgb_dm.src = "images/rgb/scene" + id + "/DM.png";
                                     rgb_osmosis.src = "images/rgb/scene" + id + "/osmosis.png";
                                     rgb_static.src = "images/rgb/scene" + id + "/osmosis.png";
+
+                                    mainImage.style.borderColor = "#FFBF00";
                                     // replaceImage(dark, viewer)
                                 }
                             </script>
@@ -282,55 +284,70 @@
                                 <!-- <img class='llff-viewer' id="rgb_main" 
                                 src="images/rgb/scene1/input.png"
                                 style="width: 500px; height: 500px; display: block; margin: 100px auto 10px auto;">  -->
-                                <div id="mainImage" class="twentytwenty-container" style="width: 500px; height: 500px; display: block; margin: 100px auto 10px auto;">
-                                    <img class='llff-viewer' id="rgb_static" src="images/rgb/scene1/osmosis.png" alt="Before"/>
-                                    <img class='llff-viewer' id="rgb_main" src="images/rgb/scene1/input.png" alt="After"/>
+                                
+                                <div id="mainImage" class="twentytwenty-container" 
+                                style="width: 600px; height: 600px; display: block; margin: 100px auto 10px auto;">
+                                    <img class='llff-viewer' id="rgb_static" src="images/rgb/scene1/osmosis.png" alt="Before" 
+                                    style="border-style: none;"/>
+                                    <img class='llff-viewer' id="rgb_main" src="images/rgb/scene1/input.png" alt="After"
+                                    style="border-style: none;"/>
                                 </div>
                             </a>
                         </div>
                         
                         <!-- results small images - with click option -->
                         <div class="column-thumbnail-title">
-                            <h1 class="title is-6"> You can cycle through the images by pressing key
+                            <!-- <h1 class="title is-6"> You can cycle through the images by pressing key
                                 <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
                                 <span class="rcorners" style="border: 3px solid #CCCCFF"> 8 </span> .
+                            </h1> -->
+                            <h1 class="title is-6">
+                                Click on the image you wish to compare <br> it will be displayed on the right side
                             </h1>
                             
                             <!-- column 1 -->
                             <div class="column-thumbnail">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
                                 <img src="images/rgb/scene1/input.png" id="rgb_uw" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);">
+                                     <!-- onClick="replaceImage(this,rgb_main);"> -->
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">2. Contrast Stretch</h1>
                                 <img src="images/rgb/scene1/contrast_stertch.png" id="rgb_contrast" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);">     
+                                    <!-- onClick="replaceImage(this,rgb_main);"> -->
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">3. GDCP <a class="ref" href="#gdcp">[1]</a> </h1>
                                 <img src="images/rgb/scene1/GDCP.png" id="rgb_gdcp" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);">
+                                    <!-- onClick="replaceImage(this,rgb_main);"> -->
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">4. Ucolor <a class="ref" href="#ucolor">[2]</a> </h1>
                                 <img src="images/rgb/scene1/Ucolor.png" id="rgb_ucolor" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                onClick="replaceImageBorder(this,rgb_main,mainImage);">
+                                <!-- onClick="replaceImage(this,rgb_main);"> -->
                             </div>
                             <!-- column 2 -->
                             <div class="column-thumbnail">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">5. CWR <a class="ref" href="#cwr">[3]</a> </h1>
                                 <img src="images/rgb/scene1/CWR.png" id="rgb_cwr" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                onClick="replaceImageBorder(this,rgb_main,mainImage);">    
+                                <!-- onClick="replaceImage(this,rgb_main);"> -->
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">6. Semi-UIR <a class="ref" href="#semiuir">[4]</a> </h1>
                                 <img src="images/rgb/scene1/semi-UIR.png" id="rgb_semiuir" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                onClick="replaceImageBorder(this,rgb_main,mainImage);">
+                                <!-- onClick="replaceImage(this,rgb_main);"> -->
 
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">7. DM <a class="ref" href="#dm">[5]</a> </h1>
                                 <img src="images/rgb/scene1/DM.png" id="rgb_dm" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                onClick="replaceImageBorder(this,rgb_main,mainImage);">
+                                <!-- onClick="replaceImage(this,rgb_main);"> -->
 
                                 <p class="is-text is-size-6 has-text-weight-semibold">8. Osmosis</p>
                                 <img src="images/rgb/scene1/osmosis.png" id="rgb_osmosis" onload="setBorderReal(this);"
-                                     onClick="replaceImage(this,rgb_main);">
+                                onClick="replaceImageBorder(this,rgb_main,mainImage);">     
+                                <!-- onClick="replaceImage(this,rgb_main);"> -->
 
                             </div>
 
@@ -368,17 +385,10 @@
 
                     <br><br>
                     <p class="has-text-justified" style="font-size: 18px;">
-                        A comparison for several underwater scenes. <br>
-                        Choose a scene from the upper row and a work on the right columns. <br>
-                        Input underwater image is "1. Underwater",
-                        Our results is "7. Osmosis". 2-6 are works which we compared to
-                        <!-- We are examining several underwater scenes <br>
-                        1. Underwater (Input): <br>
-                        Original underwater scene for comparison. <br>
-                        7. Osmosis (Our Result): <br>
-                        The result obtained from our process. <br>
-                        2-6: <br>
-                        Other works used for comparison. -->
+                        Comparison with several underwater monocular depth methods. <br>
+                        Select a scene from the upper row and a method from the right column. <br>
+                        The input underwater image is labeled '1. Underwater,' and our result is '7. Osmosis'. <br>
+                        The Osmosis result is shown on the left side, with the compared method displayed on the right.
 
                     </p>
                     <br>
@@ -464,15 +474,20 @@
                             <a> 
                                 <img class='llff-viewer' id="depth_main"
                                     src="images/depth/scene1/input_rgb.png"
-                                    style="width: 500px; height: 500px; display: block; margin: 100px auto 10px auto;">
+                                    style="width: 500px; height: 500px; display: block; margin: 100px auto 10px auto;"/>
                             </a>
                         </div>
                         
                         <div class="column-thumbnail-title">
-                            <h1 class="title is-6"> You can cycle through the images by pressing key
+                            
+                            <!-- <h1 class="title is-6"> You can cycle through the images by pressing key
                                 <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
                                 <span class="rcorners" style="border: 3px solid #CCCCFF"> 7 </span> .
+                            </h1> -->
+                            <h1 class="title is-6">
+                                Click on the image you wish to compare <br> it will be displayed on the right side
                             </h1>
+
                             <div class="column-thumbnail">
                                 <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
                                 <img src="images/depth/scene1/input_rgb.png" id="depth_uw" onload="setBorderDepth(this);"
@@ -743,20 +758,20 @@
     </div>
 </section> -->
 
-<script>
+<!-- <script>
     document.onkeydown = keyHandler;
-</script>
+</script> -->
 
 <script>
-    document.onkeydown = keyHandler;
+    // document.onkeydown = keyHandler;
     $(window).on('load', function() {
         // Initialize TwentyTwenty plugin
         $(".twentytwenty-container").twentytwenty({
             default_offset_pct: 0.5,
             orientation: 'horizontal',
-            before_label: 'Before',
-            after_label: 'After',
-            no_overlay: true,
+            before_label: 'Osmosis',
+            after_label: 'Else',
+            no_overlay: false,
             move_slider_on_hover: false,
             move_with_handle_only: true,
             click_to_move: false

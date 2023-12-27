@@ -136,12 +136,16 @@ function replaceImage(newimage,image)
 	image.src               = newimage.src;
 	image.parentNode.href   = newimage.src;
 	image.style.borderColor = newimage.style.borderColor;
+}
 
-	// swap new image in for zoom
+function replaceImageBorder(newimage,image,twentycontainer)
+{
+	image.src               = newimage.src;
+	image.parentNode.href   = newimage.src;
+	image.style.borderColor = newimage.style.borderColor;
 
-	// var ez = $('#'+image.id).data('elevateZoom');
-	// let ez = document.getElementById(image.id).data('elevateZoom');12
-	// ez.swaptheimage(newimage.src,newimage.src);
+	twentycontainer.style.borderColor = newimage.style.borderColor;
+
 }
 
 
@@ -187,6 +191,7 @@ function RealColors(id)
 	else if(id === "rgb_semiuir") {return colors[6];}
 	else if(id === "rgb_dm") {return colors[7];}
 	else if(id === "rgb_osmosis") {return colors[8];}
+	else if(id === "rgb_static") {return colors[8];}
 }
 
 

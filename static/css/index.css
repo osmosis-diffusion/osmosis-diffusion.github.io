@@ -266,7 +266,8 @@ img:hover {
 
 
 .llff-viewer {
-    border-color: #FFBF00;
+    /* border-color: #FFBF00; */
+    border-color: #7D3C98;
 }
 
 .img-teaser {
