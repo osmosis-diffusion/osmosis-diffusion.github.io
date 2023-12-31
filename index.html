@@ -279,7 +279,20 @@
                         </div>   
                     </div>
                     
-                    <div class="row">
+                    <style>
+                        /* Media query for narrow screens */
+                        @media only screen and (max-width: 600px) {
+                            .row {
+                            flex-direction: column; /* Reverse the order for narrow screens */
+                            }
+
+                            .column {
+                            width: 100%; /* Make each column take the full width */
+                            }
+                        }
+                    </style>
+
+                    <div class="row" style="display: flex; flex-wrap: wrap;">
 
                         <div class="column is-two-thirds">
                         <!-- <div class="column is-three-quarters"> -->
@@ -300,69 +313,71 @@
                         </div>
                         
                         <!-- results small images - with click option -->
-                        <div class="column-thumbnail-title">
+                        
                             <!-- <h1 class="title is-6"> You can cycle through the images by pressing key
                                 <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
                                 <span class="rcorners" style="border: 3px solid #CCCCFF"> 8 </span> .
                             </h1> -->
+                        <div class="column">
                             <h1 class="title is-6">
                                 Click on the image you wish to compare <br> it will be displayed on the right side
                             </h1>
                             
-                            <!-- column 1 -->
-                            <div class="column-thumbnail">
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
-                                <img src="images/rgb/scene1/input.png" id="rgb_uw" onload="setBorderReal(this);"
-                                style="max-width: 100px; height: auto;"
-                                onClick="replaceImageBorder(this,rgb_main,mainImage);">
-                                     <!-- onClick="replaceImage(this,rgb_main);"> -->
+                            <div class="column-thumbnail-title">
+                                <!-- column 1 -->
+                                <div class="column-thumbnail" style="flex: 1;">
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
+                                    <img src="images/rgb/scene1/input.png" id="rgb_uw" onload="setBorderReal(this);"
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);"
+                                    style="max-width: 110px; height: auto;">
+                                        <!-- onClick="replaceImage(this,rgb_main);"> -->
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. Contrast Stretch</h1>
-                                <img src="images/rgb/scene1/contrast_stertch.png" id="rgb_contrast" onload="setBorderReal(this);"
-                                style="max-width: 100px; height: auto;"    
-                                onClick="replaceImageBorder(this,rgb_main,mainImage);">     
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">2. Contrast Stretch</h1>
+                                    <img src="images/rgb/scene1/contrast_stertch.png" id="rgb_contrast" onload="setBorderReal(this);"    
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);"
+                                    style="max-width: 110px; height: auto;">     
+                                        <!-- onClick="replaceImage(this,rgb_main);"> -->
+
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">3. GDCP <a class="ref" href="#gdcp">[1]</a> </h1>
+                                    <img src="images/rgb/scene1/GDCP.png" id="rgb_gdcp" onload="setBorderReal(this);"
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);"
+                                    style="max-width: 110px; height: auto;">
+                                        <!-- onClick="replaceImage(this,rgb_main);"> -->
+
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">4. Ucolor <a class="ref" href="#ucolor">[2]</a> </h1>
+                                    <img src="images/rgb/scene1/Ucolor.png" id="rgb_ucolor" onload="setBorderReal(this);"
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);"
+                                    style="max-width: 110px; height: auto;">
+                                    <!-- onClick="replaceImage(this,rgb_main);"> -->
+                                </div>
+                                <!-- column 2 -->
+                                <div class="column-thumbnail">
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">5. CWR <a class="ref" href="#cwr">[3]</a> </h1>
+                                    <img src="images/rgb/scene1/CWR.png" id="rgb_cwr" onload="setBorderReal(this);"
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);"
+                                    style="max-width: 110px; height: auto;">    
                                     <!-- onClick="replaceImage(this,rgb_main);"> -->
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. GDCP <a class="ref" href="#gdcp">[1]</a> </h1>
-                                <img src="images/rgb/scene1/GDCP.png" id="rgb_gdcp" onload="setBorderReal(this);"
-                                style="max-width: 100px; height: auto;"    
-                                onClick="replaceImageBorder(this,rgb_main,mainImage);">
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">6. Semi-UIR <a class="ref" href="#semiuir">[4]</a> </h1>
+                                    <img src="images/rgb/scene1/semi-UIR.png" id="rgb_semiuir" onload="setBorderReal(this);"
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);"
+                                    style="max-width: 110px; height: auto;">
                                     <!-- onClick="replaceImage(this,rgb_main);"> -->
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">4. Ucolor <a class="ref" href="#ucolor">[2]</a> </h1>
-                                <img src="images/rgb/scene1/Ucolor.png" id="rgb_ucolor" onload="setBorderReal(this);"
-                                style="max-width: 100px; height: auto;"
-                                onClick="replaceImageBorder(this,rgb_main,mainImage);">
-                                <!-- onClick="replaceImage(this,rgb_main);"> -->
-                            </div>
-                            <!-- column 2 -->
-                            <div class="column-thumbnail">
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">5. CWR <a class="ref" href="#cwr">[3]</a> </h1>
-                                <img src="images/rgb/scene1/CWR.png" id="rgb_cwr" onload="setBorderReal(this);"
-                                style="max-width: 100px; height: auto;"
-                                onClick="replaceImageBorder(this,rgb_main,mainImage);">    
-                                <!-- onClick="replaceImage(this,rgb_main);"> -->
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">7. DM <a class="ref" href="#dm">[5]</a> </h1>
+                                    <img src="images/rgb/scene1/DM.png" id="rgb_dm" onload="setBorderReal(this);"
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);"
+                                    style="max-width: 110px; height: auto;">
+                                    <!-- onClick="replaceImage(this,rgb_main);"> -->
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">6. Semi-UIR <a class="ref" href="#semiuir">[4]</a> </h1>
-                                <img src="images/rgb/scene1/semi-UIR.png" id="rgb_semiuir" onload="setBorderReal(this);"
-                                style="max-width: 100px; height: auto;"
-                                onClick="replaceImageBorder(this,rgb_main,mainImage);">
-                                <!-- onClick="replaceImage(this,rgb_main);"> -->
+                                    <p class="is-text is-size-6 has-text-weight-semibold">8. Osmosis</p>
+                                    <img src="images/rgb/scene1/osmosis.png" id="rgb_osmosis" onload="setBorderReal(this);"
+                                    onClick="replaceImageBorder(this,rgb_main,mainImage);"
+                                    style="max-width: 110px; height: auto;">     
+                                    <!-- onClick="replaceImage(this,rgb_main);"> -->
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">7. DM <a class="ref" href="#dm">[5]</a> </h1>
-                                <img src="images/rgb/scene1/DM.png" id="rgb_dm" onload="setBorderReal(this);"
-                                style="max-width: 100px; height: auto;"
-                                onClick="replaceImageBorder(this,rgb_main,mainImage);">
-                                <!-- onClick="replaceImage(this,rgb_main);"> -->
-
-                                <p class="is-text is-size-6 has-text-weight-semibold">8. Osmosis</p>
-                                <img src="images/rgb/scene1/osmosis.png" id="rgb_osmosis" onload="setBorderReal(this);"
-                                style="max-width: 100px; height: auto;"
-                                onClick="replaceImageBorder(this,rgb_main,mainImage);">     
-                                <!-- onClick="replaceImage(this,rgb_main);"> -->
-
-                            </div>
-
+                                </div>
+                            </div>    
                         </div>
                     </div>
                 </div>
