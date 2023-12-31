@@ -351,7 +351,7 @@
                                     <!-- onClick="replaceImage(this,rgb_main);"> -->
                                 </div>
                                 <!-- column 2 -->
-                                <div class="column-thumbnail">
+                                <div class="column-thumbnail" style="flex: 1;">
                                     <h1 class="is-text is-size-6 has-text-weight-semibold">5. CWR <a class="ref" href="#cwr">[3]</a> </h1>
                                     <img src="images/rgb/scene1/CWR.png" id="rgb_cwr" onload="setBorderReal(this);"
                                     onClick="replaceImageBorder(this,rgb_main,mainImage);"
@@ -496,7 +496,20 @@
                         </div>
                     </div>
                     
-                    <div class="row">
+                    <style>
+                        /* Media query for narrow screens */
+                        @media only screen and (max-width: 600px) {
+                            .row {
+                            flex-direction: column; /* Reverse the order for narrow screens */
+                            }
+
+                            .column {
+                            width: 100%; /* Make each column take the full width */
+                            }
+                        }
+                    </style>
+
+                    <div class="row" style="display: flex; flex-wrap: wrap;">
 
                         <div class="column is-two-thirds">
                             <a> 
@@ -516,54 +529,58 @@
                             </a>
                         </div>
                         
-                        <div class="column-thumbnail-title">
-                            
-                            <!-- <h1 class="title is-6"> You can cycle through the images by pressing key
-                                <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
-                                <span class="rcorners" style="border: 3px solid #CCCCFF"> 7 </span> .
-                            </h1> -->
+                        <div class="column">
                             <h1 class="title is-6">
                                 Click on the image you wish to compare <br> it will be displayed on the right side
                             </h1>
 
-                            <div class="column-thumbnail">
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
-                                <img src="images/depth/scene1/input_rgb.png" id="depth_uw" onload="setBorderDepth(this);"
-                                onClick="replaceImageBorder(this,depth_main,mainDepth);">
-                                <!-- onClick="replaceImage(this,depth_main);"> -->
+                            <div class="column-thumbnail-title">
+                                
+                                <!-- <h1 class="title is-6"> You can cycle through the images by pressing key
+                                    <span class="rcorners" style="border: 3px solid #FFBF00"> 1 </span> to
+                                    <span class="rcorners" style="border: 3px solid #CCCCFF"> 7 </span> .
+                                </h1> -->
+                                
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">2. GDCP <a class="ref" href="#gdcp">[1]</a> </h1>
-                                <img src="images/depth/scene1/GDCP_depth.png" id="depth_gdcp" onload="setBorderDepth(this);"
-                                onClick="replaceImageBorder(this,depth_main,mainDepth);">     
-                                <!-- onClick="replaceImage(this,depth_main);"> -->
+                                <div class="column-thumbnail" style="flex: 1;">
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">1. Underwater</h1>
+                                    <img src="images/depth/scene1/input_rgb.png" id="depth_uw" onload="setBorderDepth(this);"
+                                    onClick="replaceImageBorder(this,depth_main,mainDepth);">
+                                    <!-- onClick="replaceImage(this,depth_main);"> -->
 
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">3. IBLA <a class="ref" href="#ibla">[6]</a> </h1>
-                                <img src="images/depth/scene1/IBLA_depth.png" id="depth_ibla" onload="setBorderDepth(this);"
-                                onClick="replaceImageBorder(this,depth_main,mainDepth);">     
-                                <!-- onClick="replaceImage(this,depth_main);"> -->
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">2. GDCP <a class="ref" href="#gdcp">[1]</a> </h1>
+                                    <img src="images/depth/scene1/GDCP_depth.png" id="depth_gdcp" onload="setBorderDepth(this);"
+                                    onClick="replaceImageBorder(this,depth_main,mainDepth);">     
+                                    <!-- onClick="replaceImage(this,depth_main);"> -->
+
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">3. IBLA <a class="ref" href="#ibla">[6]</a> </h1>
+                                    <img src="images/depth/scene1/IBLA_depth.png" id="depth_ibla" onload="setBorderDepth(this);"
+                                    onClick="replaceImageBorder(this,depth_main,mainDepth);">     
+                                    <!-- onClick="replaceImage(this,depth_main);"> -->
+                                </div>
+                                <div class="column-thumbnail" style="flex: 1;">
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">4. Unveiling <a class="ref" href="#uv">[7]</a> </h1>
+                                    <img src="images/depth/scene1/unveiling_depth.png" id="depth_uv" onload="setBorderDepth(this);"
+                                    onClick="replaceImageBorder(this,depth_main,mainDepth);">     
+                                    <!-- onClick="replaceImage(this,depth_main);"> -->
+
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">5. UW-Net <a class="ref" href="#uwnet">[8]</a> </h1>
+                                    <img src="images/depth/scene1/UW-Net_depth.png" id="depth_uwnet" onload="setBorderDepth(this);"
+                                    onClick="replaceImageBorder(this,depth_main,mainDepth);">     
+                                    <!-- onClick="replaceImage(this,depth_main);"> -->
+
+                                    <h1 class="is-text is-size-6 has-text-weight-semibold">6. monoUWnet <a class="ref" href="#monouwnet">[9]</a> </h1>
+                                    <img src="images/depth/scene1/monoUWnet_depth.png" id="depth_monouwnet" onload="setBorderDepth(this);"
+                                    onClick="replaceImageBorder(this,depth_main,mainDepth);">
+                                    <!-- onClick="replaceImage(this,depth_main);"> -->
+
+                                    <p class="is-text is-size-6 has-text-weight-semibold">7. Osmosis</p>
+                                    <img src="images/depth/scene1/osmosis_depth.png" id="depth_osmosis" onload="setBorderDepth(this);"
+                                    onClick="replaceImageBorder(this,depth_main,mainDepth);">     
+                                    <!-- onClick="replaceImage(this,depth_main);"> -->
+                                </div>
                             </div>
-                            <div class="column-thumbnail">
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">4. Unveiling <a class="ref" href="#uv">[7]</a> </h1>
-                                <img src="images/depth/scene1/unveiling_depth.png" id="depth_uv" onload="setBorderDepth(this);"
-                                onClick="replaceImageBorder(this,depth_main,mainDepth);">     
-                                <!-- onClick="replaceImage(this,depth_main);"> -->
-
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">5. UW-Net <a class="ref" href="#uwnet">[8]</a> </h1>
-                                <img src="images/depth/scene1/UW-Net_depth.png" id="depth_uwnet" onload="setBorderDepth(this);"
-                                onClick="replaceImageBorder(this,depth_main,mainDepth);">     
-                                <!-- onClick="replaceImage(this,depth_main);"> -->
-
-                                <h1 class="is-text is-size-6 has-text-weight-semibold">6. monoUWnet <a class="ref" href="#monouwnet">[9]</a> </h1>
-                                <img src="images/depth/scene1/monoUWnet_depth.png" id="depth_monouwnet" onload="setBorderDepth(this);"
-                                onClick="replaceImageBorder(this,depth_main,mainDepth);">
-                                <!-- onClick="replaceImage(this,depth_main);"> -->
-
-                                <p class="is-text is-size-6 has-text-weight-semibold">7. Osmosis</p>
-                                <img src="images/depth/scene1/osmosis_depth.png" id="depth_osmosis" onload="setBorderDepth(this);"
-                                onClick="replaceImageBorder(this,depth_main,mainDepth);">     
-                                <!-- onClick="replaceImage(this,depth_main);"> -->
-                            </div>
-                        </div>
+                        </div>        
                     </div>
                 </div>
             </div>
