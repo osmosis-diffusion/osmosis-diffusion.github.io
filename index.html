@@ -93,11 +93,10 @@
                           </span>
                         </span>
                     </div>
-                    <br>
+                    <h1 style="font-size:24px;font-weight:bold">ECCV 2022</h1>
                     <div class="column has-text-centered">
 
                         <!-- <h1 class="title is-5">Links for the paper and code will be published soon</h1> -->
-                        
                         <span class="link-block">    
                             <a href="https://arxiv.org/abs/2403.14837"
                                 class="external-link button is-normal is-rounded is-dark">
@@ -152,7 +151,7 @@
                 <h2 class="title is-2">Abstract</h2>
                 <div class="content has-text-justified" style="font-size: 18px;">
                     <p>
-                        Underwater image restoration is a challenging task because of strong water effects that increase dramatically with distance. 
+                        <!-- Underwater image restoration is a challenging task because of strong water effects that increase dramatically with distance. 
                         This is worsened by lack of ground truth data of clean scenes without water. 
                         Diffusion priors have emerged as strong image restoration priors. 
                         However, they are often trained with a dataset of the desired restored output, which is not available in our case. 
@@ -163,7 +162,22 @@
                         <br><br>
                         Using this prior together with a novel guidance method based on the underwater image formation model, we generate posterior samples of clean images, removing the water effects. 
                         Even though our prior did not see any underwater images during training, 
-                        our method outperforms state-of-the-art baselines both for image restoration and depth estimation on very challenging scenes.
+                        our method outperforms state-of-the-art baselines both for image restoration and depth estimation on very challenging scenes. -->
+                        Underwater image restoration is a challenging task because of water effects that increase dramatically with distance. 
+                        This is worsened by lack of ground truth data of clean scenes without water. 
+                        Diffusion priors have emerged as strong image restoration priors. 
+                        However, they are often trained with a dataset of the desired restored output, which is not available in our case.
+                        <br><br>
+                        We also observe that using only color data is insufficient, and therefore augment the prior with a depth channel. 
+                        We train an unconditional diffusion model prior on the joint space of color and depth, using standard RGBD datasets of natural outdoor scenes in air. 
+                        Using this prior together with a novel guidance method based on the underwater 
+                        image formation model, we generate posterior samples of clean images, removing the water effects.
+                        <br><br>
+                        Even though our prior did not see any underwater images during training, our method outperforms state-of-the-art baselines for image restoration on very challenging scenes.
+                        Our code, models and data are available on the project’s website.
+
+
+
                     </p>
                 </div>
             </div>
