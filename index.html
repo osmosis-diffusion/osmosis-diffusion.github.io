@@ -760,10 +760,10 @@
                     
                     <p class="has-text-justified" style="font-size: 18px;">
                         The iterative sampling process starts in \(t = T\) with random noise in 4 channels. 
-                        The denoising step outputs \(\mu\) and denoised samples \(\hat{x}_0\). 
-                        We use the physical image formation model together with \(\hat{x}_0\) to optimize the water parameters \(\phi\). 
-                        These are then input to the guided sampling. 
-                        This process repeats itself until \(t = 0\), 
+                        The denoising step outputs denoised samples \(\hat{x}_0=\hat{J}_0, \hat{D}_0\). 
+                        We use the physical image formation model together with \(\hat{x}_0\) to optimize the water parameters \(\phi\),
+                        and to guide the sampling towards the observed image. 
+                        This process repeats itself, gradually updating both the estimated image and depth, until \(t = 0\), 
                         in which \(\hat{x}_0\) hold the method’s estimate 
                         for the reconstructed scene \(\hat{J}_0\) and its depth \(\hat{D}_0\)
                     </p>
